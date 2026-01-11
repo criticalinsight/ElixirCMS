@@ -11,9 +11,12 @@ This roadmap outlines the evolution of ElixirCMS from a "Localhost Monolith" to 
 - [x] **Advanced Media Manager**: Drag-and-drop uploads, image management, and professional folder organization.
 - [x] **Live Theme Customizer**: Real-time design studio with iframe sandboxing and **CSS Hot-Reloading**.
 
-- [x] **Plugin Architecture**: Advanced hook system (`:before_build`, `:after_render`, etc.) for deep CMS extensions.
-- [x] **Search Integration**: Auto-generate `search.json` and Pagefind indexing for zero-config search.
-- [x] **High-Performance Infrastructure**: Persistent caching with **Cache Warm-up** for instant builds.
+## Phase 3: Professional Engine ✅
+- [x] **Static Cache Pre-heating**: Persistent caching for instantaneous multi-site builds.
+- [x] **Build Lifecycle Hooks**: Advanced hook system (`:before_build`, `:after_render`, etc.) for deep CMS extensions.
+- [x] **High-Performance Infrastructure**: Optimized template parsing and asset processing.
+- [x] **Asset Hot-Reloading**: Integrated CSS/JS hot-reloading for theme development.
+- [ ] **One-Click Migrators**: Import from WordPress (WXR), Ghost (JSON), and static HTML crawlers.
 - [ ] **One-Click Migrators**: Import from WordPress (WXR), Ghost (JSON), and static HTML crawlers.
 
 ## Phase 4: Native Desktop (Desktop-First) 🖥️
@@ -43,4 +46,4 @@ This roadmap outlines the evolution of ElixirCMS from a "Localhost Monolith" to 
 
 ---
 
-*Last Updated: 2026-01-11*
+*Last Updated: 2026-01-11 (v0.1.0 Alpha Release)*

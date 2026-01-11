@@ -72,9 +72,14 @@ mix test
 
 ## Building for Release
 
-### 1. Elixir Release (Sidecar)
+### 1. Elixir Release (Bakeware Sidecar)
 ```bash
-$env:MIX_ENV="prod"; mix release
+# Build the production release (Bakeware automatically bundles to a single binary)
+$env:MIX_ENV="prod"; mix release --overwrite
+
+# Copy the generated binary to Tauri's bin directory for bundling
+# Name MUST match the expected sidecar naming: [app]-[arch]-pc-windows-msvc.exe
+cp _build/prod/rel/bakeware/publii_ex.exe src-tauri/bin/publii_ex-x86_64-pc-windows-msvc.exe
 ```
 
 ### 2. Tauri App (Installer)

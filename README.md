@@ -1,5 +1,7 @@
 # ElixirCMS
 
+[![Latest Release](https://img.shields.io/github/v/release/criticalinsight/ElixirCMS?color=indigo&style=for-the-badge)](https://github.com/criticalinsight/ElixirCMS/releases/latest)
+
 **The Localhost-First Static Site CMS.**
 
 ElixirCMS is a powerful desktop-class CMS built with Elixir and Phoenix. It brings the power of static site generation to your local machine with a modern, multisite dashboard.
@@ -60,8 +62,8 @@ Publii-Ex is designed to be a complete CMS, not just a build tool.
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-repo/publii_ex.git
-    cd publii_ex
+    git clone https://github.com/criticalinsight/ElixirCMS.git
+    cd ElixirCMS
     ```
 
 2.  Install dependencies:
