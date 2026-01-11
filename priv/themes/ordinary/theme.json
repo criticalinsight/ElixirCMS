@@ -1,0 +1,10 @@
+{
+    "name": "Ordinary",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A brutalist, raw theme focused on the truth. Stark black and white, document-style layout.",
+    "config": {
+        "primary_color": "#000000",
+        "background_color": "#ffffff"
+    }
+}

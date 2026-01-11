@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @post.title %> - <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #fdfbf7; color: #1c1917; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <nav class="fixed top-0 left-0 w-full bg-[#fdfbf7]/90 backdrop-blur-sm border-b border-stone-100 z-50 px-6 h-20 flex items-center justify-between">
+        <a href="<%= @site.url %>" class="serif italic text-lg hover:text-stone-600 transition-colors">Back to Journal</a>
+        <div class="text-xs uppercase tracking-widest text-stone-400"><%= @site.title %></div>
+    </nav>
+
+    <article class="pt-32 pb-24 px-6 max-w-3xl mx-auto">
+        <header class="text-center mb-20">
+            <time class="text-xs font-mono text-stone-400"><%= Calendar.strftime(@post.published_at, "%B %d, %Y") %></time>
+            <h1 class="text-5xl md:text-6xl mt-8 mb-8 leading-tight">
+                <%= @post.title %>
+            </h1>
+        </header>
+
+        <div class="prose prose-stone prose-lg mx-auto prose-headings:font-serif prose-headings:font-normal">
+            <%= raw(@post.content) %>
+        </div>
+        
+        <div class="mt-24 pt-12 border-t border-stone-200 text-center">
+             <img src="https://ui-avatars.com/api/?name=Admin&background=random" alt="Author" class="w-12 h-12 rounded-full mx-auto mb-4 grayscale opacity-50">
+             <div class="text-sm text-stone-500 italic">Written by Admin</div>
+        </div>
+    </article>
+
+</body>
+</html>

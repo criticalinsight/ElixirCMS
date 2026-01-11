@@ -1,0 +1,11 @@
+{
+    "name": "Nebula",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A futuristic, dark-mode theme featuring glassmorphism and neon accents.",
+    "config": {
+        "primary_color": "#8b5cf6",
+        "show_hero": true,
+        "glass_opacity": 0.7
+    }
+}

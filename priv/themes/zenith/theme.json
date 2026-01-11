@@ -1,0 +1,10 @@
+{
+    "name": "Zenith",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "Ultra-minimalist, editorial design with focus on typography and whitespace.",
+    "config": {
+        "font_header": "Playfair Display",
+        "font_body": "Inter"
+    }
+}

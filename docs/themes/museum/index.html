@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Preview: Museum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Syne', sans-serif; background-color: #F2C4B3; color: #000; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .text-outline { -webkit-text-stroke: 1px black; color: transparent; }
+        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="p-6 md:p-10 flex justify-between items-center z-50 relative">
+        <a href="/ElixirCMS/themes/museum/" class="text-3xl font-extrabold uppercase tracking-tighter">
+            Preview: Museum
+        </a>
+        <div class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
+            <a href="#" class="border-b-2 border-black">Visit</a>
+            <a href="#" class="hover:border-b-2 border-black transition-all">Exhibitions</a>
+            <a href="#" class="hover:border-b-2 border-black transition-all">Collection</a>
+            <a href="#" class="bg-black text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-colors">Tickets</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero: Split / Clash -->
+        <header class="relative px-6 md:px-10 mb-20 md:mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative z-10">
+                    <h1 class="text-6xl md:text-8xl font-black leading-[0.85] mb-8">
+                        OLD<br>
+                        <span class="serif italic font-normal text-7xl md:text-9xl ml-12">Meets</span><br>
+                        NEW
+                    </h1>
+                    <p class="text-xl md:text-2xl font-bold max-w-md leading-tight">
+                        Discover the unexpected clashes between the Golden Age and today.
+                    </p>
+                </div>
+                
+                <!-- Abstract Art Elements -->
+                <div class="relative h-[50vh] w-full hidden md:block">
+                     <div class="absolute inset-0 bg-black clip-diagonal transform rotate-3"></div>
+                     <div class="absolute inset-4 bg-white clip-diagonal transform -rotate-2 flex items-center justify-center">
+                         <span class="serif italic text-4xl opacity-20">Portrait<br>Mode</span>
+                     </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Grid -->
+        <section class="px-6 md:px-10 pb-20">
+            <div class="flex items-baseline justify-between mb-12 border-b-4 border-black pb-4">
+                <h2 class="text-4xl font-extrabold uppercase">Now On View</h2>
+                <a href="#" class="font-bold underline decoration-2">View All -></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                
+                <article class="group relative">
+                    <!-- Image Card -->
+                    <div class="aspect-[3/4] bg-black mb-6 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+                         <a href="/ElixirCMS/themes/museum/art-of-simplicity/index.html" class="absolute inset-0 z-10"></a>
+                         <div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+                         
+                         <!-- Date Badge -->
+                         <div class="absolute top-4 left-4 bg-[#F2C4B3] px-3 py-1 text-xs font-bold border border-black shadow-[2px_2px_0px_0px_rgb(0,0,0)]">
+                             11 Jan
+                         </div>
+                    </div>
+
+                    <div class="pr-8">
+                        <span class="block text-xs font-bold uppercase tracking-widest mb-2 opacity-60">Exhibition 1</span>
+                        <h3 class="text-3xl serif italic leading-none mb-3 group-hover:underline decoration-2">
+                            <a href="/ElixirCMS/themes/museum/art-of-simplicity/index.html">The Art of Simplicity</a>
+                        </h3>
+                        <p class="font-bold text-sm leading-tight">
+                            Minimalism is not about subtraction for the sake of subtraction. It is about subtraction for the sake of focus.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="group relative">
+                    <!-- Image Card -->
+                    <div class="aspect-[3/4] bg-black mb-6 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+                         <a href="/ElixirCMS/themes/museum/digital-museums/index.html" class="absolute inset-0 z-10"></a>
+                         <div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+                         
+                         <!-- Date Badge -->
+                         <div class="absolute top-4 left-4 bg-[#F2C4B3] px-3 py-1 text-xs font-bold border border-black shadow-[2px_2px_0px_0px_rgb(0,0,0)]">
+                             10 Jan
+                         </div>
+                    </div>
+
+                    <div class="pr-8">
+                        <span class="block text-xs font-bold uppercase tracking-widest mb-2 opacity-60">Exhibition 2</span>
+                        <h3 class="text-3xl serif italic leading-none mb-3 group-hover:underline decoration-2">
+                            <a href="/ElixirCMS/themes/museum/digital-museums/index.html">Future of Digital Museums</a>
+                        </h3>
+                        <p class="font-bold text-sm leading-tight">
+                            How virtual reality and augmented reality are reshaping the way we experience history and culture.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="group relative">
+                    <!-- Image Card -->
+                    <div class="aspect-[3/4] bg-black mb-6 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+                         <a href="/ElixirCMS/themes/museum/corporate-synergy/index.html" class="absolute inset-0 z-10"></a>
+                         <div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+                         
+                         <!-- Date Badge -->
+                         <div class="absolute top-4 left-4 bg-[#F2C4B3] px-3 py-1 text-xs font-bold border border-black shadow-[2px_2px_0px_0px_rgb(0,0,0)]">
+                             09 Jan
+                         </div>
+                    </div>
+
+                    <div class="pr-8">
+                        <span class="block text-xs font-bold uppercase tracking-widest mb-2 opacity-60">Exhibition 3</span>
+                        <h3 class="text-3xl serif italic leading-none mb-3 group-hover:underline decoration-2">
+                            <a href="/ElixirCMS/themes/museum/corporate-synergy/index.html">Corporate Synergy Report 2025</a>
+                        </h3>
+                        <p class="font-bold text-sm leading-tight">
+                            Q4 earnings show a marked increase in cross-departmental efficiency and actionable deliverables.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="group relative">
+                    <!-- Image Card -->
+                    <div class="aspect-[3/4] bg-black mb-6 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+                         <a href="/ElixirCMS/themes/museum/neon-nights/index.html" class="absolute inset-0 z-10"></a>
+                         <div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
+                         
+                         <!-- Date Badge -->
+                         <div class="absolute top-4 left-4 bg-[#F2C4B3] px-3 py-1 text-xs font-bold border border-black shadow-[2px_2px_0px_0px_rgb(0,0,0)]">
+                             08 Jan
+                         </div>
+                    </div>
+
+                    <div class="pr-8">
+                        <span class="block text-xs font-bold uppercase tracking-widest mb-2 opacity-60">Exhibition 4</span>
+                        <h3 class="text-3xl serif italic leading-none mb-3 group-hover:underline decoration-2">
+                            <a href="/ElixirCMS/themes/museum/neon-nights/index.html">Neon Nights & Cyber Dreams</a>
+                        </h3>
+                        <p class="font-bold text-sm leading-tight">
+                            Exploring the aesthetic of cyberpunk in modern web design. Glitch effects, neon colors, and dark modes.
+                        </p>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="bg-black text-[#F2C4B3] py-6 overflow-hidden whitespace-nowrap mb-20">
+            <div class="inline-block animate-[marquee_20s_linear_infinite] text-4xl font-black uppercase tracking-widest">
+                Open Daily 10:00 - 17:00 /// Buy Tickets Online /// Free for Children /// Open Daily 10:00 - 17:00 /// Buy Tickets Online /// Free for Children
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-black text-white p-12 md:p-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                 <h4 class="text-6xl font-black mb-8 leading-none">VISIT<br>US</h4>
+                 <p class="text-xl font-bold max-w-sm">
+                     Grote Markt 16<br>
+                     2011 RD Haarlem<br>
+                     The Netherlands
+                 </p>
+            </div>
+            <div class="flex flex-col justify-end items-start md:items-end">
+                 <a href="#" class="text-2xl font-bold hover:text-[#F2C4B3] transition-colors">Newsletter</a>
+                 <a href="#" class="text-2xl font-bold hover:text-[#F2C4B3] transition-colors mt-4">Instagram</a>
+                 <a href="#" class="text-2xl font-bold hover:text-[#F2C4B3] transition-colors mt-4">Facebook</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @page_title %> | <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        .bg-lime-accent { background-color: #CCFF00; color: #000; }
+        .text-lime-accent { color: #84cc16; } /* Slightly darker for text legibility */
+        .border-lime-accent { border-color: #CCFF00; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="bg-slate-900 border-b border-slate-700 text-white py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="<%= @site.url %>" class="flex items-center gap-3 font-bold text-xl tracking-tight">
+                <div class="w-8 h-8 rounded bg-lime-accent flex items-center justify-center text-black font-black">L</div>
+                <%= @site.title %>
+            </a>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+                <a href="#" class="text-white hover:text-lime-accent transition-colors">Newsroom</a>
+                <a href="#" class="hover:text-lime-accent transition-colors">Press Kits</a>
+                <a href="#" class="hover:text-lime-accent transition-colors">Company</a>
+                <a href="#" class="bg-lime-accent text-black px-4 py-2 rounded-md font-bold hover:bg-white transition-colors">Contact PR</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-slate-900 text-white py-20 px-6 md:px-12 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto">
+            <h5 class="text-lime-accent font-bold uppercase tracking-widest text-sm mb-4">Latest Updates</h5>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
+                Insights, announcements, and stories from the future of data.
+            </h1>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-6 md:px-12 py-12 w-full">
+        
+        <!-- Filter Bar -->
+        <div class="flex flex-wrap gap-4 mb-12 pb-8 border-b border-slate-200">
+             <button class="px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-medium">All News</button>
+             <button class="px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-medium hover:border-slate-400 hover:text-slate-900 transition-colors">Press Releases</button>
+             <button class="px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-medium hover:border-slate-400 hover:text-slate-900 transition-colors">Events</button>
+             <button class="px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-medium hover:border-slate-400 hover:text-slate-900 transition-colors">In the Media</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <!-- Feed -->
+            <div class="md:col-span-8 space-y-12">
+                <%= for {post, idx} <- Enum.with_index(@posts) do %>
+                <article class="group flex flex-col md:flex-row gap-8 items-start border-b border-slate-100 pb-12 last:border-0">
+                    <div class="w-full md:w-1/3 aspect-video bg-slate-200 rounded-lg overflow-hidden relative">
+                         <div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 text-xs font-bold uppercase rounded text-slate-700">
+                             News
+                         </div>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <div class="text-xs font-medium text-slate-500 mb-2">
+                             <%= Calendar.strftime(post.published_at, "%B %d, %Y") %>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cyan-700 transition-colors leading-snug">
+                            <a href="<%= @site.url %><%= post.slug %>/index.html"><%= post.title %></a>
+                        </h2>
+                        <p class="text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                            <%= post.excerpt %>
+                        </p>
+                        <a href="<%= @site.url %><%= post.slug %>/index.html" class="inline-flex items-center gap-1 text-sm font-bold text-slate-900 hover:text-lime-600 transition-colors">
+                            Read Release <span class="bg-lime-accent rounded-full w-4 h-4 flex items-center justify-center text-[10px]">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+                <% end %>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="md:col-span-4 space-y-8">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                    <h3 class="font-bold text-slate-900 mb-4">Media Contact</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        For press inquiries, interviews, or brand assets, please contact our PR team.
+                    </p>
+                    <a href="mailto:press@example.com" class="text-sm font-bold text-cyan-700 hover:underline">press@example.com</a>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-lime-accent rounded-full blur-[60px] opacity-20"></div>
+                    <h3 class="font-bold mb-4 relative z-10">Subscribe to Updates</h3>
+                    <p class="text-sm text-slate-300 mb-6 relative z-10">
+                        Get the latest news directly to your inbox.
+                    </p>
+                    <button class="w-full py-2 bg-lime-accent text-black font-bold rounded relative z-10 hover:bg-white transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12 px-6 md:px-12 mt-12 text-center md:text-left">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+             <div class="text-sm text-slate-500 mb-4 md:mb-0">
+                 &copy; <%= Date.utc_today().year %> <%= @site.title %> Inc. All rights reserved.
+             </div>
+             <div class="flex gap-6 text-sm font-medium text-slate-600">
+                 <a href="#" class="hover:text-slate-900">Privacy Policy</a>
+                 <a href="#" class="hover:text-slate-900">Terms of Service</a>
+                 <a href="#" class="hover:text-slate-900">Cookie Settings</a>
+             </div>
+        </div>
+    </footer>
+
+</body>
+</html>

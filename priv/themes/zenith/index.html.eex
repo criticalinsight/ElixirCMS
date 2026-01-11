@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @page_title %> - <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #fdfbf7; color: #1c1917; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row">
+
+    <!-- Sticky Sidebar -->
+    <aside class="w-full md:w-24 h-20 md:h-screen fixed top-0 left-0 bg-[#fdfbf7] border-b md:border-b-0 md:border-r border-stone-200 z-50 flex items-center justify-between md:flex-col md:py-12 px-6">
+        <a href="<%= @site.url %>" class="text-xl font-bold tracking-tight"><%= String.slice(@site.title, 0, 2) %></a>
+        
+        <nav class="hidden md:flex flex-col gap-8 items-center rotate-180 vertical-text">
+            <a href="<%= @site.url %>" class="text-xs uppercase tracking-[0.2em] hover:text-stone-500 transition-colors">Journal</a>
+            <a href="#" class="text-xs uppercase tracking-[0.2em] hover:text-stone-500 transition-colors">About</a>
+        </nav>
+
+        <div class="md:hidden">Menu</div>
+    </aside>
+
+    <main class="flex-grow md:ml-24 px-6 md:px-24 py-24 md:py-32 max-w-7xl mx-auto w-full">
+        <header class="mb-32">
+            <h1 class="text-6xl md:text-8xl font-medium tracking-tight leading-[1.1] mb-12">
+                <%= @site.title %>
+                <span class="block text-2xl md:text-3xl font-light text-stone-400 mt-6 italic">
+                    A collection of thoughts & ideas.
+                </span>
+            </h1>
+        </header>
+
+        <section class="space-y-32">
+            <%= for {post, idx} <- Enum.with_index(@posts) do %>
+            <article class="group cursor-pointer">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-baseline border-t border-stone-200 pt-12">
+                    <div class="md:col-span-2 text-xs font-mono text-stone-400">
+                        N°0<%= idx + 1 %>
+                    </div>
+                    <div class="md:col-span-7">
+                        <h2 class="text-4xl md:text-5xl mb-6 group-hover:italic transition-all duration-300">
+                            <a href="<%= @site.url %><%= post.slug %>/index.html" class="before:absolute before:inset-0">
+                                <%= post.title %>
+                            </a>
+                        </h2>
+                        <p class="text-stone-500 text-lg font-light leading-relaxed max-w-md">
+                            <%= post.excerpt %>
+                        </p>
+                    </div>
+                    <div class="md:col-span-3 text-right">
+                        <time class="text-xs uppercase tracking-widest text-stone-400">
+                            <%= Calendar.strftime(post.published_at, "%b %d, %Y") %>
+                        </time>
+                    </div>
+                </div>
+            </article>
+            <% end %>
+        </section>
+    </main>
+
+</body>
+</html>

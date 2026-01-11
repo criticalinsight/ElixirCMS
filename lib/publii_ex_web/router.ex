@@ -30,7 +30,7 @@ defmodule PubliiExWeb.Router do
     live("/sites/:site_id/pages/:id/edit", PagesLive.Edit, :edit)
     live("/sites/:site_id/media", MediaLive)
     live("/sites/:site_id/theme", ThemeLive.Editor)
-    live("/sites/:site_id/plugins", PluginsLive.Index)
+    live("/sites/:site_id/plugins", PluginsLive)
     live("/sites/:site_id/settings", SettingsLive)
 
     # Legacy routes (redirect or remove later)

@@ -1,0 +1,10 @@
+{
+    "name": "Kinetic",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "High-energy brutalism with bold typography and sharp contrast.",
+    "config": {
+        "accent_color": "#ff3e00",
+        "marquee_speed": "20s"
+    }
+}

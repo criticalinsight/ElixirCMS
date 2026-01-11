@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Preview: Sushism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Oswald', 'Noto Sans JP', sans-serif; background-color: #f8f8f8; color: #111; overflow-x: hidden; }
+        .vertical-rl { writing-mode: vertical-rl; }
+        .text-stroke { -webkit-text-stroke: 1px transparent; }
+        .text-stroke-white { -webkit-text-stroke: 1px white; color: transparent; }
+        .bg-pattern { background-image: radial-gradient(#ccc 1px, transparent 1px); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen">
+
+    <!-- Vertical Navigation (Right) -->
+    <nav class="fixed top-0 right-0 h-full w-20 md:w-24 bg-white border-l border-gray-200 z-50 flex flex-col items-center py-12 justify-between">
+        <div class="w-12 h-12 rounded-full bg-[#D80032] flex items-center justify-center text-white font-bold text-lg">
+            P
+        </div>
+        
+        <div class="vertical-rl gap-12 font-bold tracking-[0.2em] text-sm uppercase">
+            <a href="#" class="hover:text-[#D80032] transition-colors relative group">
+                Menu
+                <span class="absolute -right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-[#D80032] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            </a>
+            <a href="/ElixirCMS/themes/sushism/" class="text-[#D80032]">Index</a>
+        </div>
+
+        <div class="vertical-rl text-xs text-gray-400 font-mono tracking-widest">
+            EST. 2026
+        </div>
+    </nav>
+
+    <main class="pr-20 md:pr-24">
+        <!-- Hero Section -->
+        <header class="relative min-h-[90vh] flex items-center bg-[#D80032] text-white overflow-hidden">
+             <!-- Background Texture/Image Placeholder -->
+             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+             <div class="container mx-auto px-6 md:px-20 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                 <div>
+                     <h1 class="text-6xl md:text-9xl font-black uppercase leading-none tracking-tighter mb-8">
+                         New<br>
+                         <span class="text-stroke-white">Wave</span><br>
+                         Media
+                     </h1>
+                     <p class="text-xl md:text-2xl font-light tracking-wide max-w-md border-l-4 border-white pl-6">
+                         Redefining tradition. <br>
+                         Bold aesthetics for the bold creator.
+                     </p>
+                 </div>
+                 
+                 <div class="hidden md:block absolute right-0 bottom-0 opacity-20 text-[12rem] font-black vertical-rl leading-none select-none pointer-events-none">
+                     Preview: Sushism
+                 </div>
+             </div>
+        </header>
+
+        <!-- Post Grid -->
+        <section class="py-32 px-6 md:px-20">
+            <div class="flex items-end justify-between mb-20">
+                 <h2 class="text-5xl md:text-7xl font-bold uppercase text-[#D80032]">
+                    Latest<br><span class="text-black">Stories</span>
+                 </h2>
+                 <div class="hidden md:block w-32 h-1 bg-black mb-4"></div>
+            </div>
+
+            <div class="space-y-32">
+                
+                <article class="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+                     <!-- Line Connector -->
+                     
+                     <div class="hidden md:block absolute left-[50%] top-[50%] h-[150%] w-px bg-gray-300 -z-10"></div>
+                     
+
+                     <div class="md:col-span-5 relative">
+                         <!-- Image Placeholder -->
+                         <div class="aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                             
+                             <!-- Stylized Number -->
+                             <div class="absolute -top-10 -left-10 text-9xl font-black text-transparent stroke-black/10 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4" style="-webkit-text-stroke: 2px rgba(0,0,0,0.1);">
+                                 01
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="md:col-span-7 pl-0 md:pl-12">
+                         <div class="flex items-center gap-4 text-sm font-bold tracking-widest uppercase mb-6 text-[#D80032]">
+                             <span>Article</span>
+                             <div class="w-8 h-px bg-[#D80032]"></div>
+                             <time>2026.01.11</time>
+                         </div>
+                         
+                         <h3 class="text-4xl md:text-6xl font-bold uppercase leading-tight mb-8 group-hover:text-[#D80032] transition-colors">
+                             <a href="/ElixirCMS/themes/sushism/art-of-simplicity/index.html" class="before:absolute before:inset-0">
+                                 The Art of Simplicity
+                             </a>
+                         </h3>
+                         
+                         <p class="text-lg text-gray-600 line-clamp-3 max-w-xl">
+                             Minimalism is not about subtraction for the sake of subtraction. It is about subtraction for the sake of focus.
+                         </p>
+                     </div>
+                </article>
+                
+                <article class="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+                     <!-- Line Connector -->
+                     
+                     <div class="hidden md:block absolute left-[50%] top-[50%] h-[150%] w-px bg-gray-300 -z-10"></div>
+                     
+
+                     <div class="md:col-span-5 relative">
+                         <!-- Image Placeholder -->
+                         <div class="aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                             
+                             <!-- Stylized Number -->
+                             <div class="absolute -top-10 -left-10 text-9xl font-black text-transparent stroke-black/10 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4" style="-webkit-text-stroke: 2px rgba(0,0,0,0.1);">
+                                 02
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="md:col-span-7 pl-0 md:pl-12">
+                         <div class="flex items-center gap-4 text-sm font-bold tracking-widest uppercase mb-6 text-[#D80032]">
+                             <span>Article</span>
+                             <div class="w-8 h-px bg-[#D80032]"></div>
+                             <time>2026.01.10</time>
+                         </div>
+                         
+                         <h3 class="text-4xl md:text-6xl font-bold uppercase leading-tight mb-8 group-hover:text-[#D80032] transition-colors">
+                             <a href="/ElixirCMS/themes/sushism/digital-museums/index.html" class="before:absolute before:inset-0">
+                                 Future of Digital Museums
+                             </a>
+                         </h3>
+                         
+                         <p class="text-lg text-gray-600 line-clamp-3 max-w-xl">
+                             How virtual reality and augmented reality are reshaping the way we experience history and culture.
+                         </p>
+                     </div>
+                </article>
+                
+                <article class="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+                     <!-- Line Connector -->
+                     
+                     <div class="hidden md:block absolute left-[50%] top-[50%] h-[150%] w-px bg-gray-300 -z-10"></div>
+                     
+
+                     <div class="md:col-span-5 relative">
+                         <!-- Image Placeholder -->
+                         <div class="aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                             
+                             <!-- Stylized Number -->
+                             <div class="absolute -top-10 -left-10 text-9xl font-black text-transparent stroke-black/10 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4" style="-webkit-text-stroke: 2px rgba(0,0,0,0.1);">
+                                 03
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="md:col-span-7 pl-0 md:pl-12">
+                         <div class="flex items-center gap-4 text-sm font-bold tracking-widest uppercase mb-6 text-[#D80032]">
+                             <span>Article</span>
+                             <div class="w-8 h-px bg-[#D80032]"></div>
+                             <time>2026.01.09</time>
+                         </div>
+                         
+                         <h3 class="text-4xl md:text-6xl font-bold uppercase leading-tight mb-8 group-hover:text-[#D80032] transition-colors">
+                             <a href="/ElixirCMS/themes/sushism/corporate-synergy/index.html" class="before:absolute before:inset-0">
+                                 Corporate Synergy Report 2025
+                             </a>
+                         </h3>
+                         
+                         <p class="text-lg text-gray-600 line-clamp-3 max-w-xl">
+                             Q4 earnings show a marked increase in cross-departmental efficiency and actionable deliverables.
+                         </p>
+                     </div>
+                </article>
+                
+                <article class="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+                     <!-- Line Connector -->
+                     
+
+                     <div class="md:col-span-5 relative">
+                         <!-- Image Placeholder -->
+                         <div class="aspect-[4/5] bg-gray-200 relative overflow-hidden">
+                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                             
+                             <!-- Stylized Number -->
+                             <div class="absolute -top-10 -left-10 text-9xl font-black text-transparent stroke-black/10 transition-transform duration-500 group-hover:translate-x-4 group-hover:translate-y-4" style="-webkit-text-stroke: 2px rgba(0,0,0,0.1);">
+                                 04
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="md:col-span-7 pl-0 md:pl-12">
+                         <div class="flex items-center gap-4 text-sm font-bold tracking-widest uppercase mb-6 text-[#D80032]">
+                             <span>Article</span>
+                             <div class="w-8 h-px bg-[#D80032]"></div>
+                             <time>2026.01.08</time>
+                         </div>
+                         
+                         <h3 class="text-4xl md:text-6xl font-bold uppercase leading-tight mb-8 group-hover:text-[#D80032] transition-colors">
+                             <a href="/ElixirCMS/themes/sushism/neon-nights/index.html" class="before:absolute before:inset-0">
+                                 Neon Nights & Cyber Dreams
+                             </a>
+                         </h3>
+                         
+                         <p class="text-lg text-gray-600 line-clamp-3 max-w-xl">
+                             Exploring the aesthetic of cyberpunk in modern web design. Glitch effects, neon colors, and dark modes.
+                         </p>
+                     </div>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white py-24 pl-6 pr-24 md:pl-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#D80032] rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+            <div>
+                <h4 class="text-4xl font-bold uppercase mb-8">Preview: Sushism</h4>
+                <p class="text-gray-400 max-w-sm">
+                    Combining digital innovation with traditional craftsmanship.
+                </p>
+            </div>
+            <div class="text-right vertical-rl h-40 md:h-auto">
+                 <a href="#" class="font-bold text-2xl hover:text-[#D80032] transition-colors">Instagram</a>
+                 <a href="#" class="font-bold text-2xl mt-8 hover:text-[#D80032] transition-colors">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

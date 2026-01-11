@@ -1,0 +1,10 @@
+{
+    "name": "Lime",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A sharp, corporate newsroom theme. High-contrast slate and electric lime for tech-forward brands.",
+    "config": {
+        "primary_color": "#CCFF00",
+        "background_color": "#1E293B"
+    }
+}

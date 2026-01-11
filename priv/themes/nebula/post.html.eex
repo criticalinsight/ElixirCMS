@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @post.title %> - <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '<%= @theme.config["primary_color"] %>',
+            },
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .prose-invert {
+            --tw-prose-body: #94a3b8;
+            --tw-prose-headings: #fff;
+            --tw-prose-links: #818cf8;
+            --tw-prose-bold: #fff;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="<%= @site.url %>" class="text-xl font-bold text-white">
+                <%= @site.title %>
+            </a>
+            <a href="<%= @site.url %>" class="text-sm text-slate-400 hover:text-white">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 px-6">
+        <article class="max-w-3xl mx-auto">
+            <header class="mb-12 text-center">
+                <div class="flex items-center justify-center gap-4 text-sm text-slate-500 mb-6">
+                    <time><%= Calendar.strftime(@post.published_at, "%B %d, %Y") %></time>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-8 leading-tight">
+                    <%= @post.title %>
+                </h1>
+                <%= if @post.excerpt do %>
+                <p class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                    <%= @post.excerpt %>
+                </p>
+                <% end %>
+            </header>
+
+            <div class="glass-card rounded-2xl p-8 md:p-12">
+                <div class="prose prose-lg prose-invert max-w-none">
+                    <%= raw(@post.content) %>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-12 text-center text-slate-600 text-sm">
+        &copy; <%= Date.utc_today().year %> <%= @site.title %>
+    </footer>
+
+</body>
+</html>

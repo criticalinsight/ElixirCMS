@@ -1,0 +1,10 @@
+{
+    "name": "Monastery",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A clean, professional knowledge center theme. Features structured cards, pill tags, and modern typography.",
+    "config": {
+        "primary_color": "#1a1a1a",
+        "secondary_color": "#f5f5f5"
+    }
+}

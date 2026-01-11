@@ -1,0 +1,10 @@
+{
+    "name": "Sushism",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A bold, avant-garde theme inspired by New Sushism. Deep reds, vertical text, and overlapping elements.",
+    "config": {
+        "primary_color": "#D80032",
+        "secondary_color": "#000000"
+    }
+}

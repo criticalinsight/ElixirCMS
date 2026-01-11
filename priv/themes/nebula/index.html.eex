@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @page_title %> - <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '<%= @theme.config["primary_color"] %>',
+              glass: 'rgba(255, 255, 255, <%= @theme.config["glass_opacity"] %>)',
+            },
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-text {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="<%= @site.url %>" class="text-2xl font-bold tracking-tighter text-white neon-text">
+                <%= @site.title %>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="<%= @site.url %>" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Home</a>
+                <!-- Pages would go here -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <%= if @theme.config["show_hero"] do %>
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wider uppercase mb-6">
+                Welcome to the Future
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
+                Crafting Digital <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 neon-text">Experiences</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                A showcase of modern design aesthetics, powered by ElixirCMS. Minimalist, fast, and beautiful.
+            </p>
+        </div>
+        
+        <!-- Decoration -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    </header>
+    <% end %>
+
+    <!-- Content -->
+    <main class="flex-grow px-6 py-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <%= for post <- @posts do %>
+            <article class="glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-500 group">
+                <div class="h-48 bg-slate-800/50 relative overflow-hidden">
+                    <!-- Placeholder or Featured Image -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-slate-900/40 group-hover:opacity-75 transition-opacity"></div>
+                    <%= if post.id do %>
+                         <!-- If we had images we'd put them here -->
+                    <% end %>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-4 text-xs text-slate-500 mb-4">
+                        <time><%= Calendar.strftime(post.published_at, "%B %d, %Y") %></time>
+                        <span>&bull;</span>
+                        <span>Article</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
+                        <a href="<%= @site.url %><%= post.slug %>/index.html" class="before:absolute before:inset-0">
+                            <%= post.title %>
+                        </a>
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                        <%= post.excerpt || "No excerpt available." %>
+                    </p>
+                    <div class="flex items-center text-sm font-medium text-indigo-400">
+                        Read Article 
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+            </article>
+            <% end %>
+        </div>
+    </main>
+
+    <footer class="border-t border-white/5 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center text-slate-500 text-sm">
+            &copy; <%= Date.utc_today().year %> <%= @site.title %>. Powered by ElixirCMS.
+        </div>
+    </footer>
+
+</body>
+</html>

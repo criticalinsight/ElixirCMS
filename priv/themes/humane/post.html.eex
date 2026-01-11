@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @post.title %> - <%= @site.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #F9F7F2; color: #2D3330; }
+        .serif { font-family: 'Crimson Pro', serif; }
+        
+        .prose-humane { font-size: 1.25rem; line-height: 1.9; color: #373330; max-width: 65ch; margin: 0 auto; }
+        .prose-humane p { margin-bottom: 2rem; font-weight: 300; }
+        .prose-humane h2 { font-family: 'Crimson Pro', serif; font-size: 2rem; margin-top: 3.5rem; margin-bottom: 1.5rem; font-weight: 400; font-style: italic; color: #1a1a1a; }
+        .prose-humane blockquote { border-left: 2px solid #2D3330; padding-left: 1.5rem; font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.5rem; margin: 3rem 0; color: #555; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <nav class="fixed top-0 w-full bg-[#F9F7F2]/90 backdrop-blur z-50 px-6 py-6 transition-all duration-300">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="<%= @site.url %>" class="serif italic hover:opacity-70 transition-opacity">
+                &larr; Return Home
+            </a>
+            <span class="text-xs uppercase tracking-widest text-gray-400">
+                <%= @site.title %>
+            </span>
+        </div>
+    </nav>
+
+    <article class="pt-32 pb-32">
+        <header class="text-center max-w-3xl mx-auto px-6 mb-20">
+             <div class="flex justify-center gap-2 text-xs uppercase tracking-widest text-gray-400 mb-6">
+                 <span>Essay</span>
+                 <span>&bull;</span>
+                 <span><%= Calendar.strftime(@post.published_at, "%B %d, %Y") %></span>
+             </div>
+             
+             <h1 class="text-5xl md:text-6xl serif font-normal leading-tight mb-8 text-[#1a1a1a]">
+                 <%= @post.title %>
+             </h1>
+             
+             <%= if @post.excerpt do %>
+             <p class="text-xl font-light text-gray-500 leading-relaxed max-w-xl mx-auto">
+                 <%= @post.excerpt %>
+             </p>
+             <% end %>
+        </header>
+
+        <div class="px-6">
+            <div class="prose-humane">
+                <%= raw(@post.content) %>
+                
+                <div class="mt-20 pt-10 border-t border-[#2D3330]/10 text-center">
+                    <p class="serif italic text-xl mb-4">Thanks for reading.</p>
+                    <div class="flex justify-center gap-4">
+                        <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[#2D3330] hover:text-white transition-colors text-lg serif">
+                            f
+                        </button>
+                        <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-[#2D3330] hover:text-white transition-colors text-lg serif">
+                            t
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</body>
+</html>

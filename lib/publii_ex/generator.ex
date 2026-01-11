@@ -39,6 +39,7 @@ defmodule PubliiEx.Generator do
 
     # 3. Render Home
     render_theme_file(
+      site_id,
       "index",
       Path.join(output_dir, "index.html"),
       theme_path,
@@ -53,6 +54,7 @@ defmodule PubliiEx.Generator do
       File.mkdir_p!(post_dir)
 
       render_theme_file(
+        site_id,
         "post",
         Path.join(post_dir, "index.html"),
         theme_path,
@@ -66,6 +68,7 @@ defmodule PubliiEx.Generator do
       File.mkdir_p!(page_dir)
 
       render_theme_file(
+        site_id,
         "page",
         Path.join(page_dir, "index.html"),
         theme_path,
@@ -84,6 +87,7 @@ defmodule PubliiEx.Generator do
       File.mkdir_p!(tag_page_dir)
 
       render_theme_file(
+        site_id,
         "tag",
         Path.join(tag_page_dir, "index.html"),
         theme_path,
@@ -244,7 +248,7 @@ defmodule PubliiEx.Generator do
     File.write!(Path.join(output_dir, "sitemap.xml"), sitemap)
   end
 
-  defp render_theme_file(template_base, dest_path, theme_path, assigns) do
+  defp render_theme_file(site_id, template_base, dest_path, theme_path, assigns) do
     # 1. Normalize assigns for cross-engine compatibility
     normalized_assigns = PubliiEx.Theme.Adapter.normalize(assigns)
 
@@ -269,6 +273,15 @@ defmodule PubliiEx.Generator do
     # 5. Wrap in layout
     layout_assigns = Map.put(final_assigns, "inner_content", inner_content)
     final_content = render_engine(layout_path, layout_assigns, theme_path)
+
+    # 6. Inject Plugin Hooks (Head and Body)
+    head_injection = PubliiEx.Plugins.run_hooks(site_id, :head, final_assigns)
+    body_injection = PubliiEx.Plugins.run_hooks(site_id, :body, final_assigns)
+
+    final_content =
+      final_content
+      |> String.replace("</head>", "#{head_injection}\n</head>")
+      |> String.replace("</body>", "#{body_injection}\n</body>")
 
     File.write!(dest_path, final_content)
   end

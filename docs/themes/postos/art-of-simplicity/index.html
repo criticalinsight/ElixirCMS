@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Simplicity // Preview: Postos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #F3F3F3; color: #111; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+        
+        /* Typography overrides */
+        .prose-custom { font-size: 1.125rem; line-height: 1.8; }
+        .prose-custom p { margin-bottom: 2em; }
+        .prose-custom h2 { font-size: 2rem; margin-top: 3em; margin-bottom: 1em; letter-spacing: -0.02em; }
+        .prose-custom a { border-bottom: 1px solid #000; text-decoration: none; padding-bottom: 2px; }
+        .prose-custom a:hover { background: #000; color: #fff; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <nav class="fixed top-0 left-0 w-full bg-[#f3f3f3]/90 backdrop-blur border-b border-[#e5e5e5] z-50 px-6 h-16 flex items-center justify-between">
+         <div class="flex items-center gap-4">
+            <a href="/ElixirCMS/themes/postos/" class="w-8 h-8 bg-black rounded-full hover:scale-90 transition-transform"></a>
+            <span class="font-mono text-xs uppercase text-gray-500 hidden md:inline-block">Preview: Postos // Reading Mode</span>
+         </div>
+         
+         <a href="/ElixirCMS/themes/postos/" class="font-mono text-sm hover:underline">Close [X]</a>
+    </nav>
+
+    <article class="pt-32 pb-24 md:pt-40">
+        <header class="max-w-4xl mx-auto px-6 mb-20 text-center">
+            <div class="inline-flex items-center gap-2 border border-black rounded-full px-3 py-1 text-xs font-mono mb-8">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                PUBLISHED 2026-01-11
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tight leading-[0.95] mb-8">
+                The Art of Simplicity
+            </h1>
+            
+            
+            <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Minimalism is not about subtraction for the sake of subtraction. It is about subtraction for the sake of focus.
+            </p>
+            
+        </header>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 px-6">
+            <!-- Left Sidebar metadata -->
+            <aside class="hidden lg:block lg:col-span-3 text-right sticky top-32 h-fit">
+                <div class="border-b border-gray-300 pb-4 mb-4">
+                    <span class="block text-xs font-mono text-gray-500 mb-1">AUTHOR</span>
+                    <span class="font-medium">Admin</span>
+                </div>
+                <div class="border-b border-gray-300 pb-4 mb-4">
+                    <span class="block text-xs font-mono text-gray-500 mb-1">READ TIME</span>
+                    <span class="font-medium">~5 Mins</span>
+                </div>
+                <div>
+                     <span class="block text-xs font-mono text-gray-500 mb-1">SHARE</span>
+                     <div class="flex justify-end gap-2">
+                        <a href="#" class="hover:underline">TW</a>
+                        <a href="#" class="hover:underline">FB</a>
+                        <a href="#" class="hover:underline">LI</a>
+                     </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-7 prose-custom">
+                <p>Minimalism is not about subtraction for the sake of subtraction. It is about subtraction for the sake of focus. When we remove the unnecessary, we are left with the essential.</p><h2>The Core Principle</h2><p>Design should breathe. Content should stand out. In a world of noise, silence is the loudest sound.</p><blockquote>True elegance is found in the absence of excess.</blockquote><p>We often clutter our lives and our designs with things we think we need, but in reality, they only serve to distract us from what truly matters.</p>
+            </div>
+            
+             <!-- Right Gutter (Empty or Related) -->
+            <div class="hidden lg:block lg:col-span-2"></div>
+        </div>
+    </article>
+
+    <footer class="bg-black text-white py-20 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+             <div class="text-4xl font-bold tracking-tight mb-8">Preview: Postos</div>
+             <p class="font-mono text-xs text-gray-500">
+                Crafted with PostOS Theme<br>
+                Powered by ElixirCMS
+             </p>
+        </div>
+    </footer>
+
+</body>
+</html>

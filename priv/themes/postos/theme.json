@@ -1,0 +1,10 @@
+{
+    "name": "PostOS",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A structured, editorial grid theme inspired by Post Labs. Minimalist, bold, and system-oriented.",
+    "config": {
+        "accent_color": "#000000",
+        "background_color": "#F3F3F3"
+    }
+}

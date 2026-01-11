@@ -1,0 +1,10 @@
+{
+    "name": "Humane",
+    "author": "ElixirCMS Team",
+    "version": "1.0.0",
+    "description": "A warm, contemplative theme for curious minds. Cream backgrounds, elegant serifs, and deep reading layouts.",
+    "config": {
+        "primary_color": "#2D3330",
+        "background_color": "#F9F7F2"
+    }
+}
