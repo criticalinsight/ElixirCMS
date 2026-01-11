@@ -93,69 +93,150 @@ defmodule Mix.Tasks.BuildThemePreviews do
     |> Enum.filter(&File.dir?(Path.join(themes_dir, &1)))
     |> Enum.sort()
     |> Enum.each(fn theme_name ->
-      theme_path = Path.join(themes_dir, theme_name)
-      index_template_path = Path.join(theme_path, "index.html.eex")
-      post_template_path = Path.join(theme_path, "post.html.eex")
+      try do
+        theme_path = Path.join(themes_dir, theme_name)
+        index_template_path = Path.join(theme_path, "index.html.eex")
+        post_template_path = Path.join(theme_path, "post.html.eex")
 
-      if File.exists?(index_template_path) and File.exists?(post_template_path) do
-        Mix.shell().info("Building preview for: #{theme_name}")
+        if File.exists?(index_template_path) and File.exists?(post_template_path) do
+          Mix.shell().info("Building preview for: #{theme_name}")
 
-        output_dir = "docs/themes/#{theme_name}"
-        File.mkdir_p!(output_dir)
+          output_dir = "docs/themes/#{theme_name}"
+          File.mkdir_p!(output_dir)
 
-        # Copy Assets
-        assets_src = Path.join(theme_path, "assets")
-        assets_dest = Path.join(output_dir, "assets")
+          # Copy Assets
+          assets_src = Path.join(theme_path, "assets")
+          assets_dest = Path.join(output_dir, "assets")
 
-        if File.exists?(assets_src) do
-          File.cp_r!(assets_src, assets_dest)
-        end
+          if File.exists?(assets_src) do
+            File.cp_r!(assets_src, assets_dest)
+          end
 
-        # Base URL for GitHub Pages
-        # https://criticalinsight.github.io/ElixirCMS/themes/<theme_name>/
-        site_url = "/ElixirCMS/themes/#{theme_name}/"
+          # Base URL for GitHub Pages
+          # https://criticalinsight.github.io/ElixirCMS/themes/<theme_name>/
+          site_url = "/ElixirCMS/themes/#{theme_name}/"
 
-        site_data = %{
-          title: "Preview: #{String.capitalize(theme_name)}",
-          url: site_url
-        }
+          site_data = %{
+            title: "Preview: #{String.capitalize(theme_name)}",
+            url: site_url,
+            description: "A premium theme for ElixirCMS.",
+            language: "en",
+            author: "ElixirCMS",
+            params: %{}
+          }
 
-        # compile templates - strip naked raw() calls
-        index_template = File.read!(index_template_path) |> String.replace("raw(", "(")
-        post_template = File.read!(post_template_path) |> String.replace("raw(", "(")
+          # compile templates - strip naked raw() calls
+          index_template = File.read!(index_template_path) |> String.replace("raw(", "(")
+          post_template = File.read!(post_template_path) |> String.replace("raw(", "(")
 
-        # Render Index
-        try do
-          # FIX: Pass assigns map for @variable support
+          # Render Index
           bindings = [site: site_data, posts: posts, page_title: "Home"]
           # EEx.eval_string(str, [assigns: bindings]) allows @foo usage
           index_html = EEx.eval_string(index_template, assigns: bindings)
           File.write!(Path.join(output_dir, "index.html"), index_html)
-        rescue
-          e -> Mix.shell().error("Failed to render index for #{theme_name}: #{inspect(e)}")
-        end
 
-        # Render Posts
-        Enum.each(posts, fn post ->
-          post_dir = Path.join(output_dir, post.slug)
-          File.mkdir_p!(post_dir)
+          # Render Posts
+          Enum.each(posts, fn post ->
+            post_dir = Path.join(output_dir, post.slug)
+            File.mkdir_p!(post_dir)
 
-          try do
             bindings = [site: site_data, post: post, page_title: post.title]
             post_html = EEx.eval_string(post_template, assigns: bindings)
             File.write!(Path.join(post_dir, "index.html"), post_html)
-          rescue
-            e ->
-              Mix.shell().error(
-                "Failed to render post for #{theme_name} / #{post.slug}: #{inspect(e)}"
-              )
-          end
-        end)
-      else
-        Mix.shell().info("Skipping #{theme_name} (missing templates)")
+          end)
+        else
+          Mix.shell().info("Skipping #{theme_name} (missing templates)")
+        end
+      rescue
+        e -> Mix.shell().error("Failed to build #{theme_name}: #{inspect(e)}")
       end
     end)
 
     Mix.shell().info("All theme previews generated in docs/themes/")
+
+    # Generate Landing Page
+    landing_html = """
+    <!DOCTYPE html>
+    <html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ElixirCMS Theme Showcase</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+        <style>
+            body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #fff; }
+            .theme-card:hover { transform: translateY(-5px); }
+        </style>
+    </head>
+    <body class="min-h-screen">
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <main class="relative z-10 max-w-7xl mx-auto px-6 py-24">
+            <header class="text-center mb-24">
+                <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+                    ElixirCMS
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto">
+                    A curated collection of premium themes for the localhost-first static site generator.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="https://github.com/criticalinsight/ElixirCMS" class="px-6 py-3 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-200 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="https://github.com/criticalinsight/ElixirCMS/releases" class="px-6 py-3 border border-slate-700 text-white font-bold rounded-full hover:bg-slate-800 transition-colors">
+                        Download App
+                    </a>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <%= for theme <- themes do %>
+                <div class="theme-card group bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all duration-300 backdrop-blur-sm">
+                    <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
+                        <h3 class="text-3xl font-bold text-white/20 uppercase tracking-widest text-center">
+                            <%= String.capitalize(theme) %>
+                        </h3>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="text-2xl font-bold text-white"><%= String.capitalize(theme) %></h2>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-xs text-slate-300 font-mono">v1.0</span>
+                        </div>
+                        <p class="text-slate-400 mb-8 h-12 line-clamp-2">
+                             Premium design generated by ElixirCMS with built-in Tailwind support.
+                        </p>
+                        <a href="themes/<%= theme %>/index.html" class="block w-full py-4 text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-colors">
+                            Live Preview
+                        </a>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+
+            <footer class="mt-32 text-center text-slate-500 border-t border-slate-800 pt-12">
+                <p>Generated by ElixirCMS • <%= DateTime.utc_now() |> Calendar.strftime("%Y") %></p>
+            </footer>
+        </main>
+    </body>
+    </html>
+    """
+
+    # Collect theme names for the template
+    themes =
+      File.ls!(themes_dir)
+      |> Enum.filter(&File.dir?(Path.join(themes_dir, &1)))
+      |> Enum.sort()
+      |> Enum.filter(fn t ->
+        File.exists?(Path.join([themes_dir, t, "index.html.eex"]))
+      end)
+
+    # Use keyword list for direct variable access (themes instead of @themes)
+    landing_rendered = EEx.eval_string(landing_html, themes: themes)
+    File.write!("docs/index.html", landing_rendered)
+    Mix.shell().info("Generated landing page at docs/index.html")
   end
 end
