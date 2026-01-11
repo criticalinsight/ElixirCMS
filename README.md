@@ -14,6 +14,25 @@ ElixirCMS is a powerful desktop-class CMS built with Elixir and Phoenix. It brin
 *   **Media Library**: Site-scoped drag-and-drop media management.
 *   **Plugin Hooks**: Extend your build pipeline with `pre_build` and `post_build` shell hooks.
 
+## 🎨 Available Themes
+
+ElixirCMS comes with a suite of premium, highly-polished themes. You can preview them live on our [GitHub Pages site](https://criticalinsight.github.io/ElixirCMS/).
+
+| Theme | Aesthetic | Preview |
+| :--- | :--- | :--- |
+| **Lime** | Corporate, Tech, Electric Lime | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/lime/) |
+| **Museum** | Eclectic, Peach & Black, Playful | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/museum/) |
+| **Ordinary** | Brutalist, Stark B&W, Raw | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/ordinary/) |
+| **Humane** | Warm Serif, Contemplative | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/humane/) |
+| **Sushism** | Avant-Garde, Red/Black, Vertical | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/sushism/) |
+| **PostOS** | Editorial, Grid, System Fonts | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/postos/) |
+| **Monastery** | Professional, Knowledge Hub | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/monastery/) |
+| **Zenith** | Ultra-minimal, Typography Focus | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/zenith/) |
+| **Nebula** | Dark Mode, Glassmorphism | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/nebula/) |
+| **Kinetic** | High Energy, Brutalist | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/kinetic/) |
+| **Maer** | Abstract, Experimental | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/maer/) |
+
+
 ## 🚀 Getting Started
 
 ### Prerequisites
