@@ -126,4 +126,32 @@ defmodule PubliiEx.Plugins do
     |> Enum.reject(&is_nil/1)
     |> Enum.join("\n")
   end
+
+  @doc """
+  Runs a transformation pipeline on content.
+  Plugins with a :transform hook will receive (content, context) and must return new content.
+  """
+  def transform_content(site_id, content, context) do
+    list_installed_plugins(site_id)
+    |> Enum.reduce(content, fn plugin, current_content ->
+      hooks = plugin.hooks()
+
+      if Map.has_key?(hooks, :transform) do
+        try do
+          settings = get_settings(site_id, plugin.id())
+          enhanced_context = Map.put(context, :settings, settings)
+
+          # Call transform hook
+          hooks[:transform].(current_content, enhanced_context)
+        rescue
+          e ->
+            require Logger
+            Logger.error("Plugin transform failed: #{plugin.name()}: #{inspect(e)}")
+            current_content
+        end
+      else
+        current_content
+      end
+    end)
+  end
 end

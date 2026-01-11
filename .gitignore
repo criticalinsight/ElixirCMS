@@ -34,6 +34,7 @@ publii_ex-*.tar
 # In case you use Node.js/npm, you want to ignore these.
 npm-debug.log
 /assets/node_modules/
+/node_modules/
 
 # Burrito and generated artifacts
 /burrito_out/
@@ -41,3 +42,9 @@ npm-debug.log
 *.exe
 *.dump
 
+# Tauri build artifacts
+/src-tauri/target/
+/src-tauri/Cargo.lock
+src-tauri/build_error*.txt
+debug_build_log.txt
+*.log

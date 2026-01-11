@@ -1,6 +1,8 @@
 defmodule PubliiEx.Generator do
+  alias PubliiEx.Plugins
   alias PubliiEx.Repo
   alias PubliiEx.Slug
+
   require Logger
 
   @output_dir "output"
@@ -53,12 +55,20 @@ defmodule PubliiEx.Generator do
       post_dir = Path.join(output_dir, post.slug)
       File.mkdir_p!(post_dir)
 
+      # TRANSFORM: Run plugin content pipeline
+      transformed = Plugins.transform_content(site_id, post.content, %{type: :post, id: post.id})
+      post_with_transform = %{post | content: transformed}
+
       render_theme_file(
         site_id,
         "post",
         Path.join(post_dir, "index.html"),
         theme_path,
-        Map.merge(base_assigns, %{post: post, page_title: post.title, relative_path: "../"})
+        Map.merge(base_assigns, %{
+          post: post_with_transform,
+          page_title: post.title,
+          relative_path: "../"
+        })
       )
     end
 
@@ -103,6 +113,7 @@ defmodule PubliiEx.Generator do
     # 6. Generate RSS & Sitemap
     generate_rss(site, posts, output_dir)
     generate_sitemap(site, posts, output_dir)
+    generate_search_index(site, posts, output_dir)
 
     # 7. Asset Copying
     theme_assets = Path.join(theme_path, "assets")
@@ -168,6 +179,7 @@ defmodule PubliiEx.Generator do
   defp list_published_posts(site_id) do
     Repo.list_posts_for_site(site_id)
     |> Enum.filter(&(&1.status == :published))
+    |> Enum.map(&ensure_content/1)
     |> Enum.sort_by(
       fn post -> post.published_at || ~U[1970-01-01 00:00:00Z] end,
       {:desc, DateTime}
@@ -177,7 +189,20 @@ defmodule PubliiEx.Generator do
   defp list_published_pages(site_id) do
     Repo.list_pages_for_site(site_id)
     |> Enum.filter(&(&1.status == :published))
+    |> Enum.map(&ensure_content/1)
     |> Enum.sort_by(& &1.title)
+  end
+
+  defp ensure_content(item) do
+    content =
+      if item.content_delta && Map.get(item.content_delta, "blocks") &&
+           length(Map.get(item.content_delta, "blocks")) > 0 do
+        PubliiEx.Editor.to_html(item.content_delta)
+      else
+        MDEx.to_html(item.content_md || "")
+      end
+
+    %{item | content: content}
   end
 
   defp group_posts_by_tag(posts) do
@@ -246,6 +271,24 @@ defmodule PubliiEx.Generator do
     """
 
     File.write!(Path.join(output_dir, "sitemap.xml"), sitemap)
+  end
+
+  defp generate_search_index(site, posts, output_dir) do
+    base_url = site.base_url || "/"
+    base_url = if String.ends_with?(base_url, "/"), do: base_url, else: base_url <> "/"
+
+    search_data =
+      Enum.map(posts, fn post ->
+        %{
+          title: post.title,
+          url: "#{base_url}#{post.slug}/index.html",
+          excerpt: post.excerpt || "",
+          date: Calendar.strftime(post.published_at, "%Y-%m-%d"),
+          tags: post.tags || []
+        }
+      end)
+
+    File.write!(Path.join(output_dir, "search.json"), Jason.encode!(search_data))
   end
 
   defp render_theme_file(site_id, template_base, dest_path, theme_path, assigns) do

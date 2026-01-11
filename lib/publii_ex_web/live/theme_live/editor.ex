@@ -1,13 +1,14 @@
 defmodule PubliiExWeb.ThemeLive.Editor do
   use PubliiExWeb, :live_view
   alias PubliiEx.Repo
+  alias PubliiEx.Themes
 
   @impl true
   def mount(%{"site_id" => site_id}, _session, socket) do
     site = Repo.get_site(site_id)
 
     if site do
-      themes = list_themes_with_metadata()
+      themes = Themes.list_themes()
       current_theme = site.theme || "maer"
 
       # Load existing config or default to empty
@@ -33,15 +34,7 @@ defmodule PubliiExWeb.ThemeLive.Editor do
     site = socket.assigns.site
 
     # Load defaults for new theme
-    theme_path = Path.join(["priv", "themes", theme_id])
-    json_path = Path.join(theme_path, "theme.json")
-
-    defaults =
-      if File.exists?(json_path) do
-        File.read!(json_path) |> Jason.decode!() |> Map.get("config", %{})
-      else
-        %{}
-      end
+    defaults = Themes.get_theme_defaults(theme_id)
 
     new_settings = Map.put(site.settings || %{}, "theme_config", defaults)
     updated_site = %{site | theme: theme_id, settings: new_settings}
@@ -79,35 +72,6 @@ defmodule PubliiExWeb.ThemeLive.Editor do
 
       {:error, _} ->
         {:noreply, assign(socket, error_message: "Invalid JSON configuration")}
-    end
-  end
-
-  defp list_themes_with_metadata do
-    themes_dir = Path.join(["priv", "themes"])
-
-    if File.exists?(themes_dir) do
-      File.ls!(themes_dir)
-      |> Enum.filter(&File.dir?(Path.join(themes_dir, &1)))
-      |> Enum.filter(&File.exists?(Path.join([themes_dir, &1, "index.html.eex"])))
-      |> Enum.map(fn dir ->
-        json_path = Path.join([themes_dir, dir, "theme.json"])
-
-        meta =
-          if File.exists?(json_path) do
-            Jason.decode!(File.read!(json_path))
-          else
-            %{
-              "name" => String.capitalize(dir),
-              "description" => "No description available.",
-              "author" => "Unknown"
-            }
-          end
-
-        Map.put(meta, "id", dir)
-      end)
-      |> Enum.sort_by(& &1["name"])
-    else
-      []
     end
   end
 

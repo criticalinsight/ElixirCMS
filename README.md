@@ -6,13 +6,14 @@ ElixirCMS is a powerful desktop-class CMS built with Elixir and Phoenix. It brin
 
 ## ✨ Features
 
+*   **Visual Block Editor**: Modern, drag-and-drop editing experience using **Editor.js**. Supports Headers, Lists, Images, Quotes, and more with instant JSON-to-HTML rendering.
 *   **Multisite Management**: Create and manage unlimited independent sites from a single dashboard.
-*   **Static Site Generation**: Blazing fast builds using EEx templates.
-*   **Cloudflare Pages Deployment**: One-click deployment to the edge using `wrangler`.
+*   **Static Site Generation**: Blazing fast builds using EEx templates with prioritized content rendering.
+*   **Search Integration**: Automatically generates `search.json` and integrates **Pagefind** for instant static search.
 *   **Magic Writer AI**: Integrated Google Gemini AI for auto-generating SEO titles and meta descriptions.
-*   **Theming Engine**: Switch themes instantly. Includes the built-in "Maer" (Haiku) theme.
+*   **Ecosystem & Plugins**: A robust hook-based plugin system for content transformation and custom UI injection.
+*   **Native Desktop (Tauri)**: Run ElixirCMS as a native desktop application on Windows, macOS, and Linux.
 *   **Media Library**: Site-scoped drag-and-drop media management.
-*   **Plugin Hooks**: Extend your build pipeline with `pre_build` and `post_build` shell hooks.
 
 ## 🎨 Available Themes
 
@@ -37,7 +38,8 @@ ElixirCMS comes with a suite of premium, highly-polished themes. You can preview
 
 ### Prerequisites
 *   **Elixir**: 1.15+
-*   **Node.js**: required for Cloudflare deployment (`npx`) and asset processing.
+*   **Rust**: required for Tauri desktop build.
+*   **Node.js**: required for asset processing and Editor.js plugins.
 
 ### Installation
 
@@ -52,12 +54,17 @@ ElixirCMS comes with a suite of premium, highly-polished themes. You can preview
     mix setup
     ```
 
-3.  Start the server:
+3.  Start the server (Web Mode):
     ```bash
     mix phx.server
     ```
 
-Visit [`localhost:4000`](http://localhost:4000) to access the dashboard.
+4.  Start the Desktop App (Dev Mode):
+    ```bash
+    npm run tauri dev
+    ```
+
+Visit [`localhost:4000`](http://localhost:4000) to access the dashboard in web mode.
 
 ## 📦 Deployment
 
@@ -67,5 +74,8 @@ Visit [`localhost:4000`](http://localhost:4000) to access the dashboard.
 3.  Enter your **Account ID**, **API Token** (with Pages:Edit permissions), and **Project Name**.
 4.  Click **Deploy to Cloudflare** from the site overview.
 
-### Custom Hooks
-You can define custom shell commands to run before or after the build process in the **Plugins** tab.
+### Plugin Architecture
+You can extend the build pipeline by implementing hooks in `lib/publii_ex/plugins.ex`. Standard hooks include:
+- `pre_build/1`: Run before site generation.
+- `post_build/1`: Run after site generation.
+- `transform_content/1`: Modify post/page content before rendering.

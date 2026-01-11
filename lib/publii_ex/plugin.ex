@@ -20,8 +20,15 @@ defmodule PubliiEx.Plugin do
   @callback render_settings(assigns :: map()) :: Phoenix.LiveView.Rendered.t()
 
   # Returns a map of hooks this plugin subscribes to.
-  # Keys are hook names (e.g., :pre_build, :head_injection), values are function references or data.
-  # For now, we'll use a simple list of supported hooks or function dispatch.
+  # Keys are hook names. Values are functions.
+  #
+  # Supported Hooks:
+  # - :head          -> (context) :: String.t()  (Injected into <head>)
+  # - :body          -> (context) :: String.t()  (Injected before </body>)
+  # - :pre_build     -> (site_id) :: :ok         (Run before build starts)
+  # - :post_build    -> (output_dir) :: :ok      (Run after build completes)
+  # - :transform     -> (content, context) :: content (Content processing pipeline)
+  # - :sidebar       -> (site_id) :: [{name, path, icon}] (Inject menu items)
   @callback hooks() :: %{optional(atom()) => (any() -> any())}
 
   defmacro __using__(_) do

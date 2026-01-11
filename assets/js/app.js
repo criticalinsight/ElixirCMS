@@ -26,6 +26,82 @@ import { hooks as colocatedHooks } from "phoenix-colocated/publii_ex"
 import topbar from "../vendor/topbar"
 
 import "../vendor/easymde.min.js"
+import EditorJS from "@editorjs/editorjs"
+import Header from "@editorjs/header"
+import List from "@editorjs/list"
+import ImageTool from "@editorjs/image"
+import Quote from "@editorjs/quote"
+import InlineCode from "@editorjs/inline-code"
+import Marker from "@editorjs/marker"
+import Table from "@editorjs/table"
+import CodeTool from "@editorjs/code"
+import Delimiter from "@editorjs/delimiter"
+import Checklist from "@editorjs/checklist"
+import Embed from "@editorjs/embed"
+
+const EditorJSHook = {
+  mounted() {
+    const initialData = this.el.dataset.content ? JSON.parse(this.el.dataset.content) : {};
+
+    const editor = new EditorJS({
+      holder: this.el,
+      data: initialData,
+      placeholder: 'Let`s write an awesome story!',
+      tools: {
+        header: {
+          class: Header,
+          inlineToolbar: ['link']
+        },
+        list: {
+          class: List,
+          inlineToolbar: true
+        },
+        image: {
+          class: ImageTool,
+          config: {
+            endpoints: {
+              byFile: '/api/uploads', // Your backend file uploader endpoint
+              byUrl: '/api/fetchUrl', // Your endpoint that provides uploading by Url
+            }
+          }
+        },
+        quote: Quote,
+        inlineCode: InlineCode,
+        marker: Marker,
+        table: Table,
+        code: CodeTool,
+        delimiter: Delimiter,
+        checklist: Checklist,
+        embed: Embed
+      },
+      onChange: (api, event) => {
+        editor.save().then((outputData) => {
+          this.pushEvent("editor-changed", { content: outputData });
+        }).catch((error) => {
+          console.log('Saving failed: ', error)
+        });
+      }
+    });
+
+    this.handleEvent("insert-editor-image", ({ path, name }) => {
+      // Logic to insert image block
+      const index = editor.blocks.getBlocksCount();
+      editor.blocks.insert('image', {
+        file: {
+          url: path
+        },
+        caption: name
+      });
+    });
+
+    this.editor = editor;
+  },
+  destroyed() {
+    if (this.editor && typeof this.editor.destroy === 'function') {
+      this.editor.destroy();
+    }
+  }
+}
 
 const EasyMDEHook = {
   mounted() {
@@ -66,7 +142,7 @@ const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: { _csrf_token: csrfToken },
-  hooks: { ...colocatedHooks, EasyMDE: EasyMDEHook },
+  hooks: { ...colocatedHooks, EasyMDE: EasyMDEHook, EditorJS: EditorJSHook },
 })
 
 // Show progress bar on live navigation and form submits

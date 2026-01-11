@@ -1,0 +1,47 @@
+{
+  "name": "publii_ex",
+  "version": "1.0.0",
+  "description": "**The Localhost-First Static Site CMS.**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tauri": "tauri"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/criticalinsight/ElixirCMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/criticalinsight/ElixirCMS/issues"
+  },
+  "homepage": "https://github.com/criticalinsight/ElixirCMS#readme",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.6"
+  },
+  "dependencies": {
+    "@editorjs/checklist": "^1.6.0",
+    "@editorjs/code": "^2.9.4",
+    "@editorjs/delimiter": "^1.4.2",
+    "@editorjs/editorjs": "^2.31.1",
+    "@editorjs/embed": "^2.8.0",
+    "@editorjs/header": "^2.8.8",
+    "@editorjs/image": "^2.10.3",
+    "@editorjs/inline-code": "^1.5.2",
+    "@editorjs/link": "^2.6.2",
+    "@editorjs/list": "^2.0.9",
+    "@editorjs/marker": "^1.4.0",
+    "@editorjs/quote": "^2.7.6",
+    "@editorjs/raw": "^2.5.1",
+    "@editorjs/table": "^2.4.5",
+    "@editorjs/warning": "^1.4.1"
+  }
+}

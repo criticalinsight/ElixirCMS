@@ -500,3 +500,102 @@ label,
 [data-theme="dark"] thead th {
   background: linear-gradient(180deg, #2A2A2A, #222) !important;
 }
+/* === EDITOR.JS DARK THEME OVERRIDES === */
+.ce-block--selected .ce-block__content {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.ce-toolbar__plus, .ce-toolbar__settings-btn {
+  color: #94a3b8;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+}
+
+.ce-toolbar__plus:hover, .ce-toolbar__settings-btn:hover {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.ce-popover {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #f8fafc;
+}
+
+.ce-popover__item:hover {
+  background-color: #334155;
+}
+
+.ce-popover__item-icon {
+  background: #334155;
+  color: #818cf8;
+}
+
+.ce-inline-toolbar {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #f8fafc;
+}
+
+.ce-inline-tool:hover {
+  background-color: #334155;
+}
+
+.ce-conversion-toolbar {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
+
+/* Block Specific Styles in Editor */
+.ce-header {
+  color: #fff;
+  padding: 0;
+  margin-bottom: 0.5em;
+}
+
+.ce-paragraph {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.cdx-list {
+  color: #cbd5e1;
+}
+
+.cdx-quote__text {
+  color: #fff;
+  font-style: italic;
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+}
+
+.cdx-code__textarea {
+  background: #0f172a !important;
+  color: #818cf8 !important;
+  border: 1px solid #1e293b !important;
+}
+
+.ce-delimiter:before {
+  border-bottom: 2px solid #334155;
+}
+
+.ce-block__content {
+  max-width: 100% !important;
+}
+
+.ce-toolbar__content {
+  max-width: 100% !important;
+}
+
+/* Image tool adjustment */
+.cdx-image-tool__image-picture {
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.cdx-image-tool__caption {
+  color: #94a3b8;
+  text-align: center;
+}
+

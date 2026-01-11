@@ -1,7 +1,7 @@
 defmodule PubliiExWeb.PostsLive.Edit do
   use PubliiExWeb, :live_view
-  alias PubliiEx.Repo
   alias PubliiEx.Post
+  alias PubliiEx.Repo
 
   @impl true
   def mount(%{"site_id" => site_id} = _params, _session, socket) do
@@ -12,6 +12,7 @@ defmodule PubliiExWeb.PostsLive.Edit do
        socket
        |> assign(:site_id, site_id)
        |> assign(:site, site)
+       |> assign(:editor_mode, :block)
        |> assign(:files, list_files())}
     else
       {:ok, push_navigate(socket, to: ~p"/")}
@@ -147,9 +148,36 @@ defmodule PubliiExWeb.PostsLive.Edit do
                     </div>
                   </div>
 
-                  <div class="space-y-2" phx-update="ignore" id="editor-wrapper">
-                    <label class="block text-sm font-medium text-slate-300">Content (Markdown)</label>
-                    <textarea id="post-content-editor" phx-hook="EasyMDE" name="post[content_md]" rows="15" class="w-full px-4 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"><%= @form[:content_md].value %></textarea>
+                  <div class="space-y-4 pt-4 border-t border-slate-700/50">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-sm font-semibold text-slate-300">Content</h3>
+                      <div class="flex p-1 bg-slate-700/30 rounded-lg border border-slate-600/30">
+                        <button type="button" phx-click="toggle-editor-mode" phx-value-mode="block" class={"px-3 py-1 text-xs font-medium rounded-md transition-all #{if @editor_mode == :block, do: "bg-indigo-600 text-white shadow-sm", else: "text-slate-400 hover:text-white"}"}>
+                          Visual
+                        </button>
+                        <button type="button" phx-click="toggle-editor-mode" phx-value-mode="markdown" class={"px-3 py-1 text-xs font-medium rounded-md transition-all #{if @editor_mode == :markdown, do: "bg-indigo-600 text-white shadow-sm", else: "text-slate-400 hover:text-white"}"}>
+                          Markdown
+                        </button>
+                      </div>
+                    </div>
+
+                    <%= if @editor_mode == :markdown do %>
+                      <div class="space-y-2" phx-update="ignore" id="editor-wrapper-markdown">
+                        <textarea id="post-content-editor" phx-hook="EasyMDE" name="post[content_md]" rows="15" class="w-full px-4 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"><%= @form[:content_md].value %></textarea>
+                      </div>
+                    <% else %>
+                      <div class="space-y-2 prose prose-invert max-w-none">
+                        <div id="editorjs-container"
+                             phx-hook="EditorJS"
+                             phx-update="ignore"
+                             data-content={Jason.encode!(@form[:content_delta].value || %{})}
+                             class="bg-slate-700/20 border border-slate-600/20 rounded-xl p-8 min-h-[400px]">
+                        </div>
+                        <input type="hidden" name="post[content_delta]" value={Jason.encode!(@form[:content_delta].value || %{})} />
+                        <!-- Fallback content update field -->
+                        <input type="hidden" name="post[content_md]" value={@form[:content_md].value} />
+                      </div>
+                    <% end %>
                   </div>
 
                   <div class="pt-4 flex gap-4">
@@ -220,6 +248,20 @@ defmodule PubliiExWeb.PostsLive.Edit do
   end
 
   @impl true
+  def handle_event("toggle-editor-mode", %{"mode" => mode}, socket) do
+    {:noreply, assign(socket, :editor_mode, String.to_existing_atom(mode))}
+  end
+
+  @impl true
+  def handle_event("editor-changed", %{"content" => content}, socket) do
+    # Update the form data with the new JSON content
+    updated_data = Map.put(socket.assigns.form.data, :content_delta, content)
+
+    {:noreply,
+     assign(socket, form: to_form(updated_data, as: "post", params: socket.assigns.form.params))}
+  end
+
+  @impl true
   def handle_event("save", %{"post" => params}, socket) do
     site_id = socket.assigns.site_id
     post = socket.assigns.post
@@ -229,6 +271,7 @@ defmodule PubliiExWeb.PostsLive.Edit do
       | title: params["title"],
         slug: params["slug"],
         content_md: params["content_md"],
+        content_delta: Map.get(socket.assigns.form.data, :content_delta) || post.content_delta,
         excerpt: params["excerpt"],
         featured_image: params["featured_image"],
         tags: parse_tags(params["tags"]),
@@ -248,7 +291,12 @@ defmodule PubliiExWeb.PostsLive.Edit do
 
   @impl true
   def handle_event("insert-image", %{"name" => name}, socket) do
-    {:noreply, push_event(socket, "insert-image", %{path: ~p"/uploads/#{name}", name: name})}
+    if socket.assigns.editor_mode == :block do
+      {:noreply,
+       push_event(socket, "insert-editor-image", %{path: ~p"/uploads/#{name}", name: name})}
+    else
+      {:noreply, push_event(socket, "insert-image", %{path: ~p"/uploads/#{name}", name: name})}
+    end
   end
 
   @impl true
