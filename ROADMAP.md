@@ -9,23 +9,38 @@ This roadmap outlines the evolution of ElixirCMS from a "Localhost Monolith" to 
 
 ## Phase 2: Visual Revolution ⚡
 - [x] **Visual Block Editor**: Implement a block-based editor (Editor.js) that saves to JSON.
-- [ ] **Advanced Media Manager**: Drag-and-drop uploads, image editing, and folder organization.
-- [ ] **Live Theme Customizer**: Sidebar to change colors, fonts, and layouts with instant preview.
+- [ ] **Advanced Media Manager**: Drag-and-drop uploads, image editing (crop/resize), and folder organization.
+- [ ] **Live Theme Customizer**: Sidebar to change colors, fonts, and layouts with instant preview in a sandboxed iframe.
 
 ## Phase 3: Ecosystem & Power 🧩
-- [x] **Plugin Architecture**: Hook system for extending the build process and UI.
-- [x] **Search Integration**: Auto-generate `search.json` and Pagefind indexing.
-- [ ] **One-Click Migrators**: Import from WordPress (WXR) and Ghost (JSON).
+- [x] **Plugin Architecture**: Hook system (pre/post build, content transforms) for extending the CMS.
+- [x] **Search Integration**: Auto-generate `search.json` and Pagefind indexing for zero-config search.
+- [ ] **One-Click Migrators**: Import from WordPress (WXR), Ghost (JSON), and static HTML crawlers.
 
 ## Phase 4: Native Desktop (Desktop-First) 🖥️
 - [x] **Tauri Integration**: Create a native app shell for Windows/macOS/Linux.
-- [x] **Sidecar Bundling**: Bundle the Elixir release inside the Tauri app.
-- [ ] **System Tray & Notifications**: Publish progress in the system tray.
+- [x] **Sidecar Bundling**: Bundle the Elixir release inside the Tauri app for zero-dependency installs.
+- [ ] **System Tray & Notifications**: Background build progress, site health alerts, and update notifications.
 
-## Phase 5: Enterprise & Global �
-- [ ] **Multi-language Support**: i18n for admin UI and generated sites.
-- [ ] **Scheduled Publishing**: Local worker to auto-build/deploy at a specific time.
-- [ ] **Access Control**: Simple password protection for the local admin UI.
+## Phase 5: Enterprise & Global 🌍
+- [ ] **Multi-language Support (i18n)**: localized admin UI and native support for multi-lingual site generation.
+- [ ] **Scheduled Publishing**: Local worker to auto-build/deploy at specific times (even when the app is in the tray).
+- [ ] **Access Control**: Simple password protection and role-based views for the local admin UI.
+
+## Phase 6: AI Co-Pilot & Automation 🤖
+- [ ] **Magic Writer V2**: Full article drafting based on outlines, auto-completion, and tone adjustment.
+- [ ] **AI Asset Generation**: Integrated DALL-E/Imagen support for generating featured images from the editor.
+- [ ] **Auto-SEO & Tagging**: AI-driven categorization and internal linking suggestions.
+
+## Phase 7: Collaboration & Sync 🔄
+- [ ] **Conflict-Free Sync (CRDT)**: Use CRDTs for resolving changes between multiple local instances.
+- [ ] **P2P Collaboration**: Optional peer-to-peer syncing for small teams working without a centralized database.
+- [ ] **Remote Data Source**: Connect ElixirCMS to a remote PostgreSQL/SQLite DB for hybrid workflows.
+
+## Phase 8: The Global Marketplace 🏪
+- [ ] **Verified Theme Store**: Cloud-synced marketplace with verified, one-click install themes.
+- [ ] **Plugin Registry**: A community-driven registry for build hooks and UI extensions.
+- [ ] **Premium Monetization**: Hooks for premium themes/plugins with built-in licensing checks.
 
 ---
 
