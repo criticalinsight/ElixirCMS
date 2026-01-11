@@ -1,4 +1,6 @@
 defmodule PubliiEx.Editor do
+  require Logger
+
   @moduledoc """
   Converts EditorJS JSON (Delta) to HTML.
   """
@@ -57,7 +59,7 @@ defmodule PubliiEx.Editor do
   end
 
   defp render_block(%{"type" => "code", "data" => %{"code" => code}}) do
-    "<pre><code>#{Phoenix.HTML.Engine.encode_entities(code)}</code></pre>"
+    "<pre><code>#{Phoenix.HTML.html_escape(code) |> Phoenix.HTML.safe_to_string()}</code></pre>"
   end
 
   defp render_block(%{"type" => "delimiter"}) do

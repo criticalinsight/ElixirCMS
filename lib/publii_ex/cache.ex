@@ -44,9 +44,9 @@ defmodule PubliiEx.Cache do
 
   @doc "Warm up the cache for a site by pre-rendering its content."
   def warm_up(site_id) do
-    # Simply listing posts and running ensure_content will populate the cache
-    PubliiEx.Generator.list_published_posts(site_id)
-    PubliiEx.Generator.list_published_pages(site_id)
+    # Simply listing entries from Repo avoids circular dependency with Generator
+    Repo.list_posts_for_site(site_id)
+    Repo.list_pages_for_site(site_id)
     :ok
   end
 end

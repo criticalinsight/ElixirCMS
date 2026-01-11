@@ -19,8 +19,7 @@ defmodule PubliiEx.MixProject do
   def releases do
     [
       publii_ex: [
-        #        steps: [:assemble, &Bakeware.assemble/1]
-        steps: [:assemble]
+        steps: [:assemble, &Bakeware.assemble/1]
       ]
     ]
   end
@@ -72,10 +71,10 @@ defmodule PubliiEx.MixProject do
       {:bandit, "~> 1.5"},
       {:cubdb, "~> 2.0"},
       {:mdex, "~> 0.10"},
-      #      {:bakeware, "~> 0.2"},
       {:salad_ui, "~> 0.1"},
       {:bbmustache, "~> 1.12"},
-      {:req, "~> 0.4"}
+      {:req, "~> 0.5"},
+      {:bakeware, "~> 0.2.4"}
     ]
   end
 

@@ -28,7 +28,7 @@
     }
   },
   "bundle": {
-    "active": false,
+    "active": true,
     "targets": "all",
     "externalBin": [
       "bin/publii_ex"

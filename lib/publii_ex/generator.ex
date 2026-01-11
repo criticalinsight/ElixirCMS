@@ -182,7 +182,7 @@ defmodule PubliiEx.Generator do
     end
   end
 
-  defp list_published_posts(site_id) do
+  def list_published_posts(site_id) do
     Repo.list_posts_for_site(site_id)
     |> Enum.filter(&(&1.status == :published))
     |> Enum.map(&ensure_content/1)
@@ -192,7 +192,7 @@ defmodule PubliiEx.Generator do
     )
   end
 
-  defp list_published_pages(site_id) do
+  def list_published_pages(site_id) do
     Repo.list_pages_for_site(site_id)
     |> Enum.filter(&(&1.status == :published))
     |> Enum.map(&ensure_content/1)
@@ -422,7 +422,7 @@ defmodule PubliiEx.Generator do
       ext when ext in [".hbs", ".handlebars"] ->
         mtime = File.stat!(path).mtime
 
-        cache_key =
+        _cache_key =
           "theme:#{Path.basename(theme_path)}:template:#{Path.basename(path)}:#{inspect(mtime)}"
 
         # Handlebars/Mustache support via HandlebarsAdapter
@@ -550,7 +550,7 @@ defmodule PubliiEx.Generator do
     # Target CSS replacement for hot-reloading
     |> String.replace(
       ~r/<link[^>]+href=["'][^"']+\/(?:main|style|assets\/css\/main)\.css[^"']*["'][^>]*>/i,
-      fn original ->
+      fn _original ->
         "<link rel=\"stylesheet\" href=\"/sites/#{site_id}/preview/styles?config=#{URI.encode(config_json)}\">"
       end
     )

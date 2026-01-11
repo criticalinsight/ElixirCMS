@@ -48,7 +48,7 @@ defmodule PubliiEx.Themes do
           Logger.error("Failed to decode theme.json for #{theme_id}: #{Exception.message(e)}")
           fallback_meta(theme_id, "Corrupted metadata file")
 
-        params ->
+        _params ->
           # Case for file not found or other errors
           # Logger.warning("Could not load theme.json for #{theme_id}: #{inspect(params)}")
           fallback_meta(theme_id)

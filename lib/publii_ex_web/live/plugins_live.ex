@@ -2,8 +2,6 @@ defmodule PubliiExWeb.PluginsLive do
   use PubliiExWeb, :live_view
 
   alias PubliiEx.{Plugins, Repo}
-  alias PubliiEx.Plugins
-  alias PubliiExWeb.Layouts
 
   def mount(%{"site_id" => site_id}, _session, socket) do
     site = Repo.get_site!(site_id)
@@ -115,7 +113,7 @@ defmodule PubliiExWeb.PluginsLive do
                 <div class="flex items-center justify-between mb-2">
                   <div class="flex items-center gap-3">
                     <div class="p-2 bg-indigo-500/20 text-indigo-400 rounded-lg">
-                      <Heroicons.puzzle_piece solid class="w-6 h-6" />
+                      <.icon name="hero-puzzle-piece-solid" class="w-6 h-6" />
                     </div>
                     <h3 class="font-semibold text-lg text-white"><%= plugin.name %></h3>
                   </div>

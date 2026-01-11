@@ -173,6 +173,9 @@ defmodule PubliiExWeb.MediaLive do
                           <button type="button" phx-click="cancel-upload" phx-value-ref={entry.ref} class="text-red-400 hover:text-red-300">&times;</button>
                         </div>
                         <progress value={entry.progress} max="100" class="w-full h-1.5 rounded-full overflow-hidden bg-slate-800 [&::-webkit-progress-value]:bg-indigo-500 [&::-moz-progress-bar]:bg-indigo-500 transition-all"></progress>
+                        <%= for err <- upload_errors(@uploads.image, entry) do %>
+                          <p class="text-red-500 font-bold"><%= error_to_string(err) %></p>
+                        <% end %>
                       </article>
                     <% end %>
 
@@ -258,8 +261,11 @@ defmodule PubliiExWeb.MediaLive do
         </form>
       </.modal>
     </div>
-    </div>
     """
+  end
+
+  defp is_image(file_name) do
+    String.downcase(Path.extname(file_name)) in [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"]
   end
 
   defp get_site_uploads_dir(site_id, sub_path \\ "") do

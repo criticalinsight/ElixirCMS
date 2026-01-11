@@ -1,6 +1,6 @@
 defmodule PubliiExWeb.SettingsLive do
   use PubliiExWeb, :live_view
-  alias PubliiEx.{Repo, Site, Generator, Deployer}
+  alias PubliiEx.{Deployer, Generator, Repo}
 
   def render(assigns) do
     ~H"""
@@ -8,7 +8,7 @@ defmodule PubliiExWeb.SettingsLive do
       <!-- Settings Panel -->
       <div class="w-full md:w-1/2 h-screen overflow-y-auto p-6 border-r bg-background">
         <div class="mb-5 flex items-center gap-2 text-sm text-slate-400">
-          <a href={~p"/sites"} class="hover:text-white transition-colors">Sites</a>
+          <a href={~p"/"} class="hover:text-white transition-colors">Sites</a>
           <span>/</span>
           <a href={~p"/sites/#{@site.id}"} class="hover:text-white transition-colors"><%= @site.name %></a>
           <span>/</span>
