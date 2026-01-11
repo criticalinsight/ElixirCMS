@@ -88,6 +88,7 @@ defmodule PubliiExWeb.ThemeLive.Editor do
     if File.exists?(themes_dir) do
       File.ls!(themes_dir)
       |> Enum.filter(&File.dir?(Path.join(themes_dir, &1)))
+      |> Enum.filter(&File.exists?(Path.join([themes_dir, &1, "index.html.eex"])))
       |> Enum.map(fn dir ->
         json_path = Path.join([themes_dir, dir, "theme.json"])
 
