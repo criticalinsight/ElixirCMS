@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= @page_title %> | <%= @site["title"] || "Maer Haiku" %></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --maer-dark: #121212;
+        --maer-light: #F5F5F7;
+        --maer-accent: #D4AF37; /* Platinum Gold */
+        --maer-gray: #2C2C2C;
+        --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--maer-dark);
+        color: var(--maer-light);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; text-decoration: none; transition: opacity 0.2s; }
+      a:hover { opacity: 0.8; }
+
+      /* Header */
+      .maer-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 3rem;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(18, 18, 18, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .maer-brand {
+        font-weight: 900;
+        font-size: 1.25rem;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+      }
+
+      .maer-brand span { color: var(--maer-accent); }
+
+      /* Main Container */
+      .main-container {
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      /* Utility */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .maer-header { padding: 1rem 1.5rem; }
+        .container { padding: 0 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="maer-header">
+      <a href="<%= @relative_path %>index.html" class="maer-brand">Publii<span>Ex</span></a>
+      <!-- Optional Nav -->
+      <!-- <nav> ... </nav> -->
+    </header>
+
+    <main class="main-container">
+      <%= @inner_content %>
+    </main>
+  </body>
+</html>

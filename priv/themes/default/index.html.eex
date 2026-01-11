@@ -1,0 +1,45 @@
+<div style="text-align: center; margin-bottom: 60px;">
+  <h1 style="font-size: 3rem; margin-bottom: 16px; font-weight: 900; letter-spacing: -1px; color: var(--epcl-titles-color);">Haiku Garden</h1>
+  <p style="font-size: 1.15rem; color: #777; font-family: 'Merriweather', serif; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+    A minimalist collection of poetry inspired by nature, moments, and the simple beauty of existence.
+  </p>
+</div>
+
+<div class="grid-posts">
+  <%= for {post, _idx} <- Enum.with_index(@posts) do %>
+    <article class="card">
+      <%= if post["featured_image"] do %>
+        <a href="<%= post["slug"] %>/index.html" class="card-image-wrapper">
+          <img src="<%= String.replace(post["featured_image"], ~r|^/|, "") %>" alt="<%= post["title"] %>" class="card-image" loading="lazy" />
+        </a>
+      <% end %>
+
+      <div class="card-body">
+        <div class="card-tags">
+          <%= for tag <- (post["tags"] || []) |> Enum.take(1) do %>
+            <a href="tags/<%= PubliiEx.Slug.slugify(tag) %>/index.html" class="tag"><%= tag %></a>
+          <% end %>
+        </div>
+
+        <h2 class="card-title">
+          <a href="<%= post["slug"] %>/index.html"><%= post["title"] %></a>
+        </h2>
+
+        <p class="card-excerpt">
+          <%= post["excerpt"] || String.slice(post["content_md"] || "", 0, 100) %>...
+        </p>
+
+        <div class="card-meta">
+          <span><%= post["date"] || "Unknown Date" %></span>
+          <span>Read More &rarr;</span>
+        </div>
+      </div>
+    </article>
+  <% end %>
+</div>
+
+<%= if Enum.empty?(@posts) do %>
+  <div style="text-align: center; padding: 100px 0;">
+    <p style="font-size: 1.5rem; color: #999;">No posts found.</p>
+  </div>
+<% end %>

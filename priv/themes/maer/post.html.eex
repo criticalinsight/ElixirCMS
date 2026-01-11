@@ -1,0 +1,212 @@
+<section class="haiku-slide" id="single-post">
+  <div class="bg-wrapper">
+    <%
+       raw_img = String.trim(@post["featured_image"] || "")
+       img_src =
+         if raw_img =~ ~r/^http/ do
+           raw_img
+         else
+           "../" <> String.replace(raw_img, ~r|^/|, "")
+         end
+    %>
+    <img src="<%= img_src %>" alt="" class="slide-bg">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="content-wrapper glass-panel">
+    <div class="tiny-meta-header">
+      <% label = if "ai" in (@post["tags"] || []), do: "PLATINUM MARKET INSIDER", else: "HISTORICAL MARKET FEED" %>
+      <span class="tiny-title"><%= label %></span>
+      <span class="tiny-sep">|</span>
+      <span class="tiny-date"><%= if @post["published_at"], do: Calendar.strftime(@post["published_at"], "%d %B %Y • %H:%M UTC"), else: "" %></span>
+    </div>
+
+    <h1 class="post-title"><%= @post["title"] %></h1>
+
+    <div class="haiku-text">
+      <%= @post["html"] || @post["content"] %>
+    </div>
+
+    <div class="post-footer">
+      <a href="../index.html" class="back-link">
+        <span class="arrow">&larr;</span> MARKET FEED
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --platinum-gold: #D4AF37;
+    --platinum-light: #E5E4E2;
+    --platinum-dark: #1A1A1A;
+    --glass-bg: rgba(0, 0, 0, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Layout & Background */
+  .haiku-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .bg-wrapper {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+  }
+
+  .slide-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; /* Dimmed for readability */
+    transition: opacity 1s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Glass Panel Container */
+  .content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    padding: 4rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Typography */
+  .post-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+    color: white;
+    letter-spacing: -0.02em;
+    background: linear-gradient(to right, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .haiku-text {
+    color: var(--platinum-light);
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .haiku-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .haiku-text h2 {
+    color: var(--platinum-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 2.5rem 0 1rem 0;
+    font-weight: 700;
+    border-left: 3px solid var(--platinum-gold);
+    padding-left: 1rem;
+  }
+
+  .haiku-text strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  .haiku-text ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .haiku-text li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .haiku-text li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--platinum-gold);
+    font-weight: bold;
+  }
+
+  /* Meta Header */
+  .tiny-meta-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .tiny-title { color: var(--platinum-gold); }
+
+  /* Footer */
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: var(--platinum-gold);
+    border-color: var(--platinum-gold);
+    color: black;
+  }
+
+  .arrow { transition: transform 0.3s ease; }
+  .back-link:hover .arrow { transform: translateX(-3px); }
+
+  /* Animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content-wrapper { padding: 2rem; width: 100%; border: none; background: rgba(0,0,0,0.8); }
+    .post-title { font-size: 2rem; }
+    .haiku-text { font-size: 1.05rem; }
+  }
+</style>

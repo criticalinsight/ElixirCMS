@@ -1,0 +1,26 @@
+    warning: no route path for PubliiExWeb.Router matches "/sites/#{assigns.site_id}/dashboard"
+    Ôöé
+ 29 Ôöé             <a href={~p"/sites/#{@site_id}/dashboard"} class="text-slate-400 hover:text-white transition-colors">
+    Ôöé             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Ôöé
+    ÔööÔöÇ lib/publii_ex_web/live/plugins_live/index.ex:29: PubliiExWeb.PluginsLive.Index.render/1
+
+    warning: unused alias Site
+    Ôöé
+  3 Ôöé   alias PubliiEx.{Repo, Site, Generator, Deployer}
+    Ôöé   ~
+    Ôöé
+    ÔööÔöÇ lib/publii_ex_web/live/settings_live.ex:3:3
+
+    warning: no route path for PubliiExWeb.Router matches "/sites"
+    Ôöé
+ 11 Ôöé           <a href={~p"/sites"} class="hover:text-white transition-colors">Sites</a>
+    Ôöé           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Ôöé
+    ÔööÔöÇ lib/publii_ex_web/live/settings_live.ex:11: PubliiExWeb.SettingsLive.render/1
+
+* assembling publii_ex-0.1.0 on MIX_ENV=dev
+* using config/runtime.exs to configure the release at runtime
+
+BREAK: (a)bort (A)bort with dump (c)ontinue (p)roc info (i)nfo
+       (l)oaded (v)ersion (k)ill (D)b-tables (d)istribution

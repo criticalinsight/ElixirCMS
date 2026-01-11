@@ -1,0 +1,22 @@
+{
+    "name": "Default Theme",
+    "author": "Publii-Ex Team",
+    "version": "1.0.0",
+    "description": "A clean, modern blog theme for Publii-Ex.",
+    "config": {
+        "primary_color": "#2563eb",
+        "font_family": "Inter, system-ui, sans-serif",
+        "show_author": true,
+        "social": {
+            "twitter": "",
+            "github": ""
+        }
+    },
+    "templates": {
+        "post": "post.html",
+        "page": "page.html",
+        "index": "index.html",
+        "tag": "tag.html",
+        "layout": "layout.html"
+    }
+}

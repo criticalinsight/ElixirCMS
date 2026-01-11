@@ -1,0 +1,696 @@
+05:43:38.469 [error] Could not warm up static assets: could not find static manifest at "c:/Users/Lenovo/AppData/Local/.burrito/publii_ex_erts-16.2_0.1.0/lib/publii_ex-0.1.0/priv/static/cache_manifest.json". Run "mix phx.digest" after building your static files or remove the "cache_static_manifest" configuration from your config files.
+05:43:38.492 [info] Running PubliiExWeb.Endpoint with Bandit 1.10.1 at :::4000 (http)
+05:43:38.492 [info] Access PubliiExWeb.Endpoint at https://localhost
+05:43:55.728 request_id=GIk-fRis3QBc3esAABEI [info] GET /
+05:43:55.808 request_id=GIk-fRis3QBc3esAABEI [info] Sent 200 in 78ms
+12:27:28.460 request_id=GIlUgpKJQcBNj58AAAAC [info] GET /
+12:27:28.461 request_id=GIlUgpKJQcBNj58AAAAC [info] Sent 200 in 1ms
+12:27:28.500 request_id=GIlUgpT1lURNj58AAABC [info] GET /assets/css/app.css
+12:27:28.512 request_id=GIlUgpT1lURNj58AAABC [info] Sent 404 in 12ms
+12:36:02.841 request_id=GIlU-lYpW-iQKBEAAAAF [info] GET /
+12:36:02.842 request_id=GIlU-lYpW-iQKBEAAAAF [info] Sent 200 in 921µs
+12:36:02.872 request_id=GIlU-lgBPqTqp4cAAABF [info] GET /assets/css/app.css
+12:36:02.872 request_id=GIlU-lgBPqTqp4cAAABF [info] Sent 404 in 204µs
+12:36:30.429 request_id=GIlVAMKVamSQKBEAAACF [info] GET /
+12:36:30.430 request_id=GIlVAMKVamSQKBEAAACF [info] Sent 200 in 716µs
+12:36:30.458 request_id=GIlVAMRErLyQKBEAAADF [info] GET /assets/css/app.css
+12:36:30.458 request_id=GIlVAMRErLyQKBEAAADF [info] Sent 404 in 307µs
+12:36:34.381 request_id=GIlVAa4kWMjqp4cAAAEF [info] GET /posts
+12:36:34.448 request_id=GIlVAa4kWMjqp4cAAAEF [info] Sent 200 in 66ms
+12:36:34.474 request_id=GIlVAbOnUPzqp4cAAAGF [info] GET /assets/css/app.css
+12:36:34.474 request_id=GIlVAbOnUPzqp4cAAAGF [info] Sent 404 in 204µs
+12:36:34.528 [info] CONNECTED TO Phoenix.LiveView.Socket in 5ms
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "XVsHTRYtGAE7GwEiBDQyOz8BBAUKMzsN-3u7sHm2abfeoXVOj4uNkYko", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+12:36:43.698 request_id=GIlVA9lsApDqp4cAAAHF [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:36:43.716 request_id=GIlVA9lsApDqp4cAAAHF [info] Sent 200 in 18ms
+12:36:43.743 request_id=GIlVA9whxtzqp4cAAACC [info] GET /assets/css/app.css
+12:36:43.743 request_id=GIlVA9whxtzqp4cAAACC [info] Sent 404 in 102µs
+12:36:43.762 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "AA8xVytWO2Y1NDQ9XDgePnh4AH4UBBg7pgC-N3NUoMSz7TzJ-Mq5unHY", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:36:48.977 request_id=GIlVBRQYhuzqp4cAAAJF [info] GET /themes
+12:36:48.977 request_id=GIlVBRQYhuzqp4cAAAJF [info] Sent 404 in 204µs
+12:36:52.540 request_id=GIlVBeh48vDqp4cAAAKF [info] GET /pages
+12:36:52.543 request_id=GIlVBeh48vDqp4cAAAKF [info] Sent 200 in 3ms
+12:36:52.564 request_id=GIlVBenjdOTqp4cAAALF [info] GET /assets/css/app.css
+12:36:52.564 request_id=GIlVBenjdOTqp4cAAALF [info] Sent 404 in 204µs
+12:36:52.573 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "Hj0eKRcJPFIrMh0xExosBjxhFyIVRyQDnUlSrlIaqKzvxvHriTfit-ta", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+12:36:57.748 request_id=GIlVBx7sMKjqp4cAAAMF [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:36:57.755 request_id=GIlVBx7sMKjqp4cAAAMF [info] Sent 200 in 6ms
+12:36:57.781 request_id=GIlVByDdE2Tqp4cAAAOF [info] GET /assets/css/app.css
+12:36:57.781 request_id=GIlVByDdE2Tqp4cAAAOF [info] Sent 404 in 102µs
+12:36:57.792 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "EykRKAITQVA5Cw0vMjlQMDkNMmYLWDo0cAcRgv4ccrjhYU4Dl8C-j2jV", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:37:24.528 [error] GenServer #PID<0.760.0> terminating
+** (KeyError) key :deploy_method not found
+    (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:198: PubliiExWeb.SettingsLive.handle_event/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:530: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:260: Phoenix.LiveView.Channel.handle_info/2
+    (stdlib 7.2) gen_server.erl:2434: :gen_server.try_handle_info/3
+    (stdlib 7.2) gen_server.erl:2420: :gen_server.handle_msg/3
+    (stdlib 7.2) proc_lib.erl:333: :proc_lib.init_p_do_apply/3
+Process Label: {Phoenix.LiveView, PubliiExWeb.SettingsLive, "lv:phx-GIlVBx7w4KinhwNF"}
+Last message: %Phoenix.Socket.Message{topic: "lv:phx-GIlVBx7w4KinhwNF", event: "event", payload: %{"event" => "save", "meta" => %{}, "type" => "form", "value" => "site_config%5Bbase_url%5D=&site_config%5Btheme%5D=clean-blog&site_config%5Btheme_config%5D%5Baccent_color%5D=%233eb0ef&site_config%5Bdeploy_method%5D=github&site_config%5Bpost_build_hook%5D="}, ref: "13", join_ref: "4"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:37:34.523 request_id=GIlVD67inZjqp4cAAAEC [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "746c9b1572866c0acce2c86b11fe21ee", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:37:34.528000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:37:34.533 request_id=GIlVD67inZjqp4cAAAEC [info] Sent 200 in 10ms
+12:37:34.564 request_id=GIlVD7FNYRzqp4cAAAPF [info] GET /assets/css/app.css
+12:37:34.564 request_id=GIlVD7FNYRzqp4cAAAPF [info] Sent 404 in 716µs
+12:37:34.577 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "JgA3MgwMGV8jNQkQU1oPLRl_Cw8iEyAEVhEHiillyLnW86kYLJzDCypf", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "c4191aefadd89447aee3b93bda47fc8b", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:37:34.590000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:38:03.040 request_id=GIlVFlKZrhzqp4cAAAQF [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "ee8c08ac3226d3cd01ead4651a5c4ed1", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:38:03.040000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:38:03.042 request_id=GIlVFlKZrhzqp4cAAAQF [info] Sent 200 in 2ms
+12:38:03.071 request_id=GIlVFlRwANjqp4cAAAGC [info] GET /assets/css/app.css
+12:38:03.071 request_id=GIlVFlRwANjqp4cAAAGC [info] Sent 404 in 204µs
+12:38:03.088 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "NjlBORVIWGoNDykyGxsyIDdUGCEoJQA4FQ3Cp--YWvNupwVTbaijIOPZ", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "65d5419cce7f13e0e9d3cce1c00367ba", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:38:03.091000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:38:10.832 [error] GenServer #PID<0.768.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+Process Label: {Phoenix.LiveView, PubliiExWeb.PostsLive.Index, "lv:phx-GIlVFlKeXhynhwRF"}
+Last message: {Phoenix.Channel, %{"flash" => "SFMyNTY.g2gDdAAAAAFtAAAABGluZm9tAAAAF1Bvc3Qgc2F2ZWQgc3VjY2Vzc2Z1bGx5bgYACjtFp5sBYgABUYA.GPE5-ugfwoQp1JG0z9CxMlf9cfXRnCMBeV3bqc01PR8", "params" => %{"_csrf_token" => "NjlBORVIWGoNDykyGxsyIDdUGCEoJQA4FQ3Cp--YWvNupwVTbaijIOPZ", "_live_referer" => "http://localhost:4000/posts/new", "_mount_attempts" => 0, "_mounts" => 0, "_track_static" => ["http://localhost:4000/assets/css/app.css", "http://localhost:4000/assets/js/app.js"]}, "redirect" => "http://localhost:4000/posts", "session" => "SFMyNTY.g2gDaAJhBnQAAAAIdwJpZG0AAAAUcGh4LUdJbFZGbEtlWGh5bmh3UkZ3B3Nlc3Npb250AAAAAHcKcGFyZW50X3BpZHcDbmlsdwR2aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3CHJvb3RfcGlkdwNuaWx3BnJvdXRlcncZRWxpeGlyLlB1YmxpaUV4V2ViLlJvdXRlcncJcm9vdF92aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3EWxpdmVfc2Vzc2lvbl9uYW1ldwdkZWZhdWx0bgYAoRxFp5sBYgABUYA.oiJCBYhluaWnZNwwxVw0YbFGat0Qnb9H43n2NPzVvAI", "static" => "SFMyNTY.g2gDaAJhBnQAAAADdwJpZG0AAAAUcGh4LUdJbFZGbEtlWGh5bmh3UkZ3BWZsYXNodAAAAAB3CmFzc2lnbl9uZXdqbgYAoRxFp5sBYgABUYA.EeuL14RDacn7xqu76ZfHl1gFWy6iQCioEKOnhiwTgKU", "sticky" => false}, {#PID<0.766.0>, #Reference<0.2538521876.3644063749.183511>}, %Phoenix.Socket{assigns: %{}, channel: Phoenix.LiveView.Channel, channel_pid: nil, endpoint: PubliiExWeb.Endpoint, handler: Phoenix.LiveView.Socket, id: nil, joined: false, join_ref: "16", private: %{connect_info: %{session: %{"_csrf_token" => "phrzeeu3ZygGkldtU5qKajPb"}}}, pubsub_server: PubliiEx.PubSub, ref: nil, serializer: Phoenix.Socket.V2.JSONSerializer, topic: "lv:phx-GIlVFlKeXhynhwRF", transport: :websocket, transport_pid: #PID<0.766.0>}}
+12:38:10.842 [error] an exception was raised:
+    ** (FunctionClauseError) no function clause matching in Date.compare/2
+        (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+        (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+        (stdlib 7.2) lists.erl:1886: :lists.sort/2
+        (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+        (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+        (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+12:38:19.241 request_id=GIlVGhhFinDqp4cAAAHC [info] GET /posts
+12:38:19.246 request_id=GIlVGhhFinDqp4cAAAHC [info] Sent 500 in 5ms
+12:38:19.252 request_id=GIlVGhhFinDqp4cAAAHC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:38:30.760 request_id=GIlVHMbY5-yQKBEAAAJC [info] GET /posts
+12:38:30.760 request_id=GIlVHMbY5-yQKBEAAAJC [info] Sent 500 in 716µs
+12:38:30.761 request_id=GIlVHMbY5-yQKBEAAAJC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:38:37.011 request_id=GIlVHjt5sjixMBMAAASF [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:38:37.017 request_id=GIlVHjt5sjixMBMAAASF [info] Sent 200 in 5ms
+12:38:37.039 request_id=GIlVHj0eBJCxMBMAAAUF [info] GET /assets/css/app.css
+12:38:37.039 request_id=GIlVHj0eBJCxMBMAAAUF [info] Sent 404 in 102µs
+12:38:37.054 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "PDsDVy4jIlINMiINDQs0HiAGJnkIIg8lLSq-KFWaWKEJfgPju3W2iH_G", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:38:51.825 request_id=GIlVIa5xM-SxMBMAAAVF [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "2fb5539753a4e08d6c3d40249e23d118", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:38:51.826000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:38:51.828 request_id=GIlVIa5xM-SxMBMAAAVF [info] Sent 200 in 2ms
+12:38:51.862 request_id=GIlVIbCfBwSxMBMAAAXF [info] GET /assets/css/app.css
+12:38:51.862 request_id=GIlVIbCfBwSxMBMAAAXF [info] Sent 404 in 204µs
+12:38:51.872 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "PyVESFVcJmY1FQQuCh0WBTR7Rh4uOB0HOM6209SUolciaqrqaN7UORMe", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "41dde389e51390de6279fe82dc6d6452", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:38:51.877000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:38:59.826 [error] GenServer #PID<0.775.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+Process Label: {Phoenix.LiveView, PubliiExWeb.PostsLive.Index, "lv:phx-GIlVIa53c-QwEwWF"}
+Last message: {Phoenix.Channel, %{"flash" => "SFMyNTY.g2gDdAAAAAFtAAAABGluZm9tAAAAF1Bvc3Qgc2F2ZWQgc3VjY2Vzc2Z1bGx5bgYAb_pFp5sBYgABUYA.5GjUsf7GmhhImDODKvhpb_RQ2dKyNLhDhjc63Jtavf4", "params" => %{"_csrf_token" => "PyVESFVcJmY1FQQuCh0WBTR7Rh4uOB0HOM6209SUolciaqrqaN7UORMe", "_live_referer" => "http://localhost:4000/posts/new", "_mount_attempts" => 0, "_mounts" => 0, "_track_static" => ["http://localhost:4000/assets/css/app.css", "http://localhost:4000/assets/js/app.js"]}, "redirect" => "http://localhost:4000/posts", "session" => "SFMyNTY.g2gDaAJhBnQAAAAIdwJpZG0AAAAUcGh4LUdJbFZJYTUzYy1Rd0V3V0Z3B3Nlc3Npb250AAAAAHcKcGFyZW50X3BpZHcDbmlsdwR2aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3CHJvb3RfcGlkdwNuaWx3BnJvdXRlcncZRWxpeGlyLlB1YmxpaUV4V2ViLlJvdXRlcncJcm9vdF92aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3EWxpdmVfc2Vzc2lvbl9uYW1ldwdkZWZhdWx0bgYAM9tFp5sBYgABUYA.t-nAfxhplUmDwXd5OsqTI6h_ANvp2AnvBWUoI00XyNs", "static" => "SFMyNTY.g2gDaAJhBnQAAAADdwJpZG0AAAAUcGh4LUdJbFZJYTUzYy1Rd0V3V0Z3BWZsYXNodAAAAAB3CmFzc2lnbl9uZXdqbgYAM9tFp5sBYgABUYA.wK7ZsFdP--cFZ1NFKa1UbYMV6IhUnTEYYC6pRHCO_gc", "sticky" => false}, {#PID<0.773.0>, #Reference<0.2538521876.3644063749.184010>}, %Phoenix.Socket{assigns: %{}, channel: Phoenix.LiveView.Channel, channel_pid: nil, endpoint: PubliiExWeb.Endpoint, handler: Phoenix.LiveView.Socket, id: nil, joined: false, join_ref: "16", private: %{connect_info: %{session: %{"_csrf_token" => "phrzeeu3ZygGkldtU5qKajPb"}}}, pubsub_server: PubliiEx.PubSub, ref: nil, serializer: Phoenix.Socket.V2.JSONSerializer, topic: "lv:phx-GIlVIa53c-QwEwWF", transport: :websocket, transport_pid: #PID<0.773.0>}}
+12:38:59.828 [error] an exception was raised:
+    ** (FunctionClauseError) no function clause matching in Date.compare/2
+        (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+        (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+        (stdlib 7.2) lists.erl:1886: :lists.sort/2
+        (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+        (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+        (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+12:39:09.070 request_id=GIlVJbJVjMx7uwcAAALC [info] GET /posts
+12:39:09.071 request_id=GIlVJbJVjMx7uwcAAALC [info] Sent 500 in 716µs
+12:39:09.071 request_id=GIlVJbJVjMx7uwcAAALC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:39:23.276 request_id=GIlVKQEZqJCxMBMAAAYF [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:39:23.283 request_id=GIlVKQEZqJCxMBMAAAYF [info] Sent 200 in 6ms
+12:39:23.311 request_id=GIlVKQMxm7CxMBMAAAAB [info] GET /assets/css/app.css
+12:39:23.311 request_id=GIlVKQMxm7CxMBMAAAAB [info] Sent 404 in 204µs
+12:39:23.326 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "QhwEV1RRPAsQC1INLBoiNngHBn0RWT462tv-14I8Jr5JGvFB-2w6p3nX", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:39:31.894 [info] Starting site build...
+12:39:31.909 [error] GenServer #PID<0.778.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex/generator.ex:17: PubliiEx.Generator.build/0
+    (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:221: PubliiExWeb.SettingsLive.handle_event/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:530: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+Process Label: {Phoenix.LiveView, PubliiExWeb.SettingsLive, "lv:phx-GIlVKQEf6JAwEwZF"}
+Last message: %Phoenix.Socket.Message{topic: "lv:phx-GIlVKQEf6JAwEwZF", event: "event", payload: %{"event" => "publish", "type" => "click", "value" => %{"value" => ""}}, ref: "12", join_ref: "4"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:39:53.025 request_id=GIlVL-5I9nS7CEoAAABB [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "46d82c3227685da99a2a37457a815766", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:39:53.027000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:39:53.027 request_id=GIlVL-5I9nS7CEoAAABB [info] Sent 200 in 2ms
+12:39:53.059 request_id=GIlVL_BGWZS7CEoAAADB [info] GET /assets/css/app.css
+12:39:53.059 request_id=GIlVL_BGWZS7CEoAAADB [info] Sent 404 in 819µs
+12:39:53.069 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "CB8hKxAOQgoWP1QNE1xUAyJDOx5VRwooxwSQuk79LF3Jx00wwvJU4-ZJ", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "9bc2fffbad6ce9b1b18edc5950cbc95d", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:39:53.074000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:40:02.063 [error] GenServer #PID<0.783.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+Process Label: {Phoenix.LiveView, PubliiExWeb.PostsLive.Index, "lv:phx-GIlVL-5PNnQISgCB"}
+Last message: {Phoenix.Channel, %{"flash" => "SFMyNTY.g2gDdAAAAAFtAAAABGluZm9tAAAAF1Bvc3Qgc2F2ZWQgc3VjY2Vzc2Z1bGx5bgYAiO1Gp5sBYgABUYA.0KJM8Pm1JaRaVLER_xc-6XG8bffY3dg8rC8WiXgxRHE", "params" => %{"_csrf_token" => "CB8hKxAOQgoWP1QNE1xUAyJDOx5VRwooxwSQuk79LF3Jx00wwvJU4-ZJ", "_live_referer" => "http://localhost:4000/posts/new", "_mount_attempts" => 0, "_mounts" => 0, "_track_static" => ["http://localhost:4000/assets/css/app.css", "http://localhost:4000/assets/js/app.js"]}, "redirect" => "http://localhost:4000/posts", "session" => "SFMyNTY.g2gDaAJhBnQAAAAIdwJpZG0AAAAUcGh4LUdJbFZMLTVQTm5RSVNnQ0J3B3Nlc3Npb250AAAAAHcKcGFyZW50X3BpZHcDbmlsdwR2aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3CHJvb3RfcGlkdwNuaWx3BnJvdXRlcncZRWxpeGlyLlB1YmxpaUV4V2ViLlJvdXRlcncJcm9vdF92aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3EWxpdmVfc2Vzc2lvbl9uYW1ldwdkZWZhdWx0bgYAQ8pGp5sBYgABUYA.ccl_bpY-DCePUD5AICbZyFgoXAZ_POJG6x1hAJyzAwE", "static" => "SFMyNTY.g2gDaAJhBnQAAAADdwJpZG0AAAAUcGh4LUdJbFZMLTVQTm5RSVNnQ0J3BWZsYXNodAAAAAB3CmFzc2lnbl9uZXdqbgYAQ8pGp5sBYgABUYA.YrgThIOALLyUj4bw84w9bIPtoyW3JWfxxow2Jq7nJi4", "sticky" => false}, {#PID<0.781.0>, #Reference<0.2538521876.3644063747.182812>}, %Phoenix.Socket{assigns: %{}, channel: Phoenix.LiveView.Channel, channel_pid: nil, endpoint: PubliiExWeb.Endpoint, handler: Phoenix.LiveView.Socket, id: nil, joined: false, join_ref: "16", private: %{connect_info: %{session: %{"_csrf_token" => "phrzeeu3ZygGkldtU5qKajPb"}}}, pubsub_server: PubliiEx.PubSub, ref: nil, serializer: Phoenix.Socket.V2.JSONSerializer, topic: "lv:phx-GIlVL-5PNnQISgCB", transport: :websocket, transport_pid: #PID<0.781.0>}}
+12:40:02.065 [error] an exception was raised:
+    ** (FunctionClauseError) no function clause matching in Date.compare/2
+        (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+        (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+        (stdlib 7.2) lists.erl:1886: :lists.sort/2
+        (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+        (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+        (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+12:40:10.026 request_id=GIlVM-OYaeC7CEoAAAaF [info] GET /posts
+12:40:10.027 request_id=GIlVM-OYaeC7CEoAAAaF [info] Sent 500 in 1ms
+12:40:10.029 request_id=GIlVM-OYaeC7CEoAAAaF [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:40:18.520 request_id=GIlVNd3n2wCxMBMAAANC [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "197fef3f337b364ec9e80995496b4cda", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:40:18.521000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:40:18.523 request_id=GIlVNd3n2wCxMBMAAANC [info] Sent 200 in 2ms
+12:40:18.553 request_id=GIlVNd_YviCxMBMAAAAD [info] GET /assets/css/app.css
+12:40:18.553 request_id=GIlVNd_YviCxMBMAAAAD [info] Sent 404 in 204µs
+12:40:18.565 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "STBFFxMTBXYrTl8ADjkOLhhxOBk3CB4O9X7mvvpEq78GeUjZMDIRVbNl", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "b43e29c708d0aab6d80b1854322db8f6", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:40:18.570000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:40:27.074 [error] GenServer #PID<0.787.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+Process Label: {Phoenix.LiveView, PubliiExWeb.PostsLive.Index, "lv:phx-GIlVNd3uGwAwEwOC"}
+Last message: {Phoenix.Channel, %{"flash" => "SFMyNTY.g2gDdAAAAAFtAAAABGluZm9tAAAAF1Bvc3Qgc2F2ZWQgc3VjY2Vzc2Z1bGx5bgYAPk9Hp5sBYgABUYA.RISe-tE-YQPSdOaSqN9XoNT7rq6cdvdcBSbS9bL_BYY", "params" => %{"_csrf_token" => "STBFFxMTBXYrTl8ADjkOLhhxOBk3CB4O9X7mvvpEq78GeUjZMDIRVbNl", "_live_referer" => "http://localhost:4000/posts/new", "_mount_attempts" => 0, "_mounts" => 0, "_track_static" => ["http://localhost:4000/assets/css/app.css", "http://localhost:4000/assets/js/app.js"]}, "redirect" => "http://localhost:4000/posts", "session" => "SFMyNTY.g2gDaAJhBnQAAAAIdwJpZG0AAAAUcGh4LUdJbFZOZDN1R3dBd0V3T0N3B3Nlc3Npb250AAAAAHcKcGFyZW50X3BpZHcDbmlsdwR2aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3CHJvb3RfcGlkdwNuaWx3BnJvdXRlcncZRWxpeGlyLlB1YmxpaUV4V2ViLlJvdXRlcncJcm9vdF92aWV3dyFFbGl4aXIuUHVibGlpRXhXZWIuUG9zdHNMaXZlLkVkaXR3EWxpdmVfc2Vzc2lvbl9uYW1ldwdkZWZhdWx0bgYA2y1Hp5sBYgABUYA.s5w2q6XdTp0UfJ6Dcb1B5qvFrvgO0dR3fCFWTRxcUG4", "static" => "SFMyNTY.g2gDaAJhBnQAAAADdwJpZG0AAAAUcGh4LUdJbFZOZDN1R3dBd0V3T0N3BWZsYXNodAAAAAB3CmFzc2lnbl9uZXdqbgYA2y1Hp5sBYgABUYA.Z38379zgXHRgYZ11JfbfOQwdqrWqFVF7ZWqYOnvEiUI", "sticky" => false}, {#PID<0.785.0>, #Reference<0.2538521876.3644063746.184601>}, %Phoenix.Socket{assigns: %{}, channel: Phoenix.LiveView.Channel, channel_pid: nil, endpoint: PubliiExWeb.Endpoint, handler: Phoenix.LiveView.Socket, id: nil, joined: false, join_ref: "16", private: %{connect_info: %{session: %{"_csrf_token" => "phrzeeu3ZygGkldtU5qKajPb"}}}, pubsub_server: PubliiEx.PubSub, ref: nil, serializer: Phoenix.Socket.V2.JSONSerializer, topic: "lv:phx-GIlVNd3uGwAwEwOC", transport: :websocket, transport_pid: #PID<0.785.0>}}
+12:40:27.075 [error] an exception was raised:
+    ** (FunctionClauseError) no function clause matching in Date.compare/2
+        (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+        (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+        (stdlib 7.2) lists.erl:1886: :lists.sort/2
+        (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+        (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+        (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+        (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+12:40:34.470 request_id=GIlVOZScYXSxMBMAAAPC [info] GET /posts
+12:40:34.471 request_id=GIlVOZScYXSxMBMAAAPC [info] Sent 500 in 716µs
+12:40:34.472 request_id=GIlVOZScYXSxMBMAAAPC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:40:44.004 request_id=GIlVO8zZTsSsj3oAAAEB [info] GET /posts
+12:40:44.006 request_id=GIlVO8zZTsSsj3oAAAEB [info] Sent 500 in 2ms
+12:40:44.007 request_id=GIlVO8zZTsSsj3oAAAEB [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:40:52.404 request_id=GIlVPcGDZ7A4JiQAAARC [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:40:52.417 request_id=GIlVPcGDZ7A4JiQAAARC [info] Sent 200 in 14ms
+12:40:52.450 request_id=GIlVPcRQm5g4JiQAAAGB [info] GET /assets/css/app.css
+12:40:52.450 request_id=GIlVPcRQm5g4JiQAAAGB [info] Sent 404 in 204µs
+12:40:52.459 request_id=GIlVPcTQvGBLAvgAAAcF [info] GET /preview/index.html
+12:40:52.459 request_id=GIlVPcTQvGBLAvgAAAcF [info] Sent 404 in 307µs
+12:40:52.469 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "FQM9PhctHEogSgUpUyIOMgV5Hno7UzMtekODrHiyz3bn8NjFPLo1Z9cO", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:41:02.205 [error] GenServer #PID<0.791.0> terminating
+** (Protocol.UndefinedError) protocol Phoenix.HTML.Safe not implemented for Map. This protocol is implemented for: Atom, BitString, Date, DateTime, Duration, Float, Integer, List, NaiveDateTime, Phoenix.LiveComponent.CID, Phoenix.LiveView.Component, Phoenix.LiveView.Comprehension, Phoenix.LiveView.JS, Phoenix.LiveView.Rendered, Time, Tuple, URI
+
+Got value:
+
+    %{"github" => "", "twitter" => ""}
+
+    (phoenix_html 4.3.0) lib/phoenix_html/safe.ex:1: Phoenix.HTML.Safe.impl_for!/1
+    (phoenix_html 4.3.0) lib/phoenix_html/safe.ex:15: Phoenix.HTML.Safe.to_iodata/1
+    (phoenix_html 4.3.0) lib/phoenix_html.ex:244: Phoenix.HTML.build_attrs/1
+    (phoenix_html 4.3.0) lib/phoenix_html.ex:197: Phoenix.HTML.attributes_escape/1
+    (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:50: anonymous fn/5 in PubliiExWeb.SettingsLive.render/1
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/diff.ex:420: Phoenix.LiveView.Diff.traverse/6
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/diff.ex:609: anonymous fn/3 in Phoenix.LiveView.Diff.traverse_dynamic/6
+    (elixir 1.19.5) lib/enum.ex:2520: Enum."-reduce/3-lists^foldl/2-0-"/3
+Process Label: {Phoenix.LiveView, PubliiExWeb.SettingsLive, "lv:phx-GIlVPcGJp7AmJASC"}
+Last message: %Phoenix.Socket.Message{topic: "lv:phx-GIlVPcGJp7AmJASC", event: "event", payload: %{"event" => "change-theme", "meta" => %{"_target" => "site_config[theme]"}, "type" => "form", "uploads" => %{}, "value" => "site_config%5Btheme%5D=default"}, ref: "12", join_ref: "4"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:41:10.363 request_id=GIlVQe_43-BLAvgAAAdF [info] GET /pages
+12:41:10.364 request_id=GIlVQe_43-BLAvgAAAdF [info] Sent 200 in 614µs
+12:41:10.387 request_id=GIlVQfFxcjhLAvgAAATC [info] GET /assets/css/app.css
+12:41:10.387 request_id=GIlVQfFxcjhLAvgAAATC [info] Sent 404 in 204µs
+12:41:10.400 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "Nz5LKF01M2xqQVQKAwYzDBdGOhgMAgcsGV9R8PF_083MhjWxBsKSmhWN", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+12:46:02.142 request_id=GIlVhd9s4CSncGAAAAfF [info] GET /posts
+12:46:02.143 request_id=GIlVhd9s4CSncGAAAAfF [info] Sent 500 in 716µs
+12:46:02.144 request_id=GIlVhd9s4CSncGAAAAfF [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:46:06.154 request_id=GIlVhs6UJABF5-YAAAhF [info] GET /
+12:46:06.155 request_id=GIlVhs6UJABF5-YAAAhF [info] Sent 200 in 819µs
+12:46:06.197 request_id=GIlVhtEeJ4RF5-YAAAiF [info] GET /assets/css/app.css
+12:46:06.197 request_id=GIlVhtEeJ4RF5-YAAAiF [info] Sent 404 in 204µs
+12:46:19.460 request_id=GIlVieezH7BF5-YAAAjF [info] GET /posts
+12:46:19.461 request_id=GIlVieezH7BF5-YAAAjF [info] Sent 500 in 614µs
+12:46:19.462 request_id=GIlVieezH7BF5-YAAAjF [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:46:24.906 request_id=GIlViyxPcoDPuycAAAUC [info] GET /settings
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:46:24.912 request_id=GIlViyxPcoDPuycAAAUC [info] Sent 200 in 5ms
+12:46:24.956 request_id=GIlViy9LhzDPuycAAAWC [info] GET /assets/css/app.css
+12:46:24.957 request_id=GIlViy9LhzDPuycAAAWC [info] Sent 404 in 716µs
+12:46:24.974 request_id=GIlVizBgGMDPuycAAAXC [info] GET /preview/index.html
+12:46:24.975 request_id=GIlVizBgGMDPuycAAAXC [info] Sent 404 in 102µs
+12:46:25.132 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "PyxDABAONkc4MAkRGTkcQ2xvKBIZWx8ROD1zukCtbInVrUx79ZYYx1Os", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:46:33.359 request_id=GIlVjSQnoBzPuycAAAYC [info] GET /posts
+12:46:33.361 request_id=GIlVjSQnoBzPuycAAAYC [info] Sent 500 in 1ms
+12:46:33.362 request_id=GIlVjSQnoBzPuycAAAYC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:46:58.657 request_id=GIlVkwf9QxQ2S4YAAAHB [info] GET /
+12:46:58.658 request_id=GIlVkwf9QxQ2S4YAAAHB [info] Sent 200 in 716µs
+12:46:58.720 request_id=GIlVkwu_yPA2S4YAAAaC [info] GET /assets/css/app.css
+12:46:58.720 request_id=GIlVkwu_yPA2S4YAAAaC [info] Sent 404 in 204µs
+12:47:09.089 request_id=GIlVlXXRQHg2S4YAAAbC [info] GET /posts
+12:47:09.090 request_id=GIlVlXXRQHg2S4YAAAbC [info] Sent 500 in 1ms
+12:47:09.091 request_id=GIlVlXXRQHg2S4YAAAbC [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:47:15.528 request_id=GIlVlvWb6yz-Lr0AAAIB [info] GET /preview/index.html
+12:47:15.528 request_id=GIlVlvWb6yz-Lr0AAAIB [info] Sent 404 in 307µs
+12:47:23.687 [error] GenServer #PID<0.803.0> terminating
+** (KeyError) key :deploy_method not found
+    (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:198: PubliiExWeb.SettingsLive.handle_event/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:530: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:260: Phoenix.LiveView.Channel.handle_info/2
+    (stdlib 7.2) gen_server.erl:2434: :gen_server.try_handle_info/3
+    (stdlib 7.2) gen_server.erl:2420: :gen_server.handle_msg/3
+    (stdlib 7.2) proc_lib.erl:333: :proc_lib.init_p_do_apply/3
+Process Label: {Phoenix.LiveView, PubliiExWeb.SettingsLive, "lv:phx-GIlViyxSkoC7JwVC"}
+Last message: %Phoenix.Socket.Message{topic: "lv:phx-GIlViyxSkoC7JwVC", event: "event", payload: %{"event" => "save", "meta" => %{}, "type" => "form", "value" => "site_config%5Bbase_url%5D=&site_config%5Btheme%5D=agency&site_config%5Bdeploy_method%5D=github&site_config%5Bpost_build_hook%5D="}, ref: "13", join_ref: "4"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:47:37.950 request_id=GIlVnC4I33T-Lr0AAAJB [info] GET /posts/new
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "c3f62696a702bf7968f83400a60055e8", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:47:37.951000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:47:37.952 request_id=GIlVnC4I33T-Lr0AAAJB [info] Sent 200 in 2ms
+12:47:38.018 request_id=GIlVnDIi5VD-Lr0AAALB [info] GET /assets/css/app.css
+12:47:38.018 request_id=GIlVnDIi5VD-Lr0AAALB [info] Sent 404 in 307µs
+12:47:38.107 [info] CONNECTED TO Phoenix.LiveView.Socket in 102µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "JS0CMBEKRFgKHTd_Axg9RR5fXBQTRyorUEpJto1kPdP8htY1Kj-_r-zI", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: "150e3d75fd4ed5e8b2fc4bba8247fe00", status: :draft, title: nil, tags: [], published_at: ~U[2026-01-10 09:47:38.113000Z], slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:33: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:48:02.267 request_id=GIlVodd7S7RHDYEAAAlF [info] GET /preview/index.html
+12:48:02.267 request_id=GIlVodd7S7RHDYEAAAlF [info] Sent 404 in 204µs
+12:48:12.350 request_id=GIlVpDB3OdhHDYEAAAmF [info] GET /posts
+12:48:12.350 request_id=GIlVpDB3OdhHDYEAAAmF [info] Sent 500 in 614µs
+12:48:12.351 request_id=GIlVpDB3OdhHDYEAAAmF [error] ** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/index.ex:7: PubliiExWeb.PostsLive.Index.mount/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/static.ex:324: Phoenix.LiveView.Static.call_mount_and_handle_params!/5
+
+12:48:29.440 [info] Starting site build...
+12:48:29.441 [error] GenServer #PID<0.806.0> terminating
+** (FunctionClauseError) no function clause matching in Date.compare/2
+    (elixir 1.19.5) lib/calendar/date.ex:559: Date.compare(nil, nil)
+    (elixir 1.19.5) lib/list.ex:521: anonymous fn/4 in List.keysort_fun/2
+    (stdlib 7.2) lists.erl:1886: :lists.sort/2
+    (elixir 1.19.5) lib/enum.ex:3348: Enum.sort_by/3
+    (publii_ex 0.1.0) lib/publii_ex/generator.ex:17: PubliiEx.Generator.build/0
+    (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:221: PubliiExWeb.SettingsLive.handle_event/3
+    (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:530: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3
+    (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+Process Label: {Phoenix.LiveView, PubliiExWeb.SettingsLive, "lv:phx-GIlViyxSkoC7JwVC"}
+Last message: %Phoenix.Socket.Message{topic: "lv:phx-GIlViyxSkoC7JwVC", event: "event", payload: %{"event" => "publish", "type" => "click", "value" => %{"value" => ""}}, ref: "18", join_ref: "14"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{theme: "refinement_test", base_url: "https://market-test.local", github_repo: nil, github_token: nil, navigation: [%{"label" => "Home", "url" => "index.html"}, %{"label" => "About", "url" => "about/index.html"}], theme_config: %{"accent_color" => "#ff0000", "show_sidebar" => true}, seo_defaults: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/settings_live.ex:138: PubliiExWeb.SettingsLive.mount/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:358: anonymous fn/6 in Phoenix.LiveView.Utils.maybe_call_live_view_mount!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/channel.ex:1238: Phoenix.LiveView.Channel.verified_mount/8
+
+12:48:56.342 request_id=GIlVrm6ppqBi0PgAAAdC [info] GET /posts/post-1/edit
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: nil, status: nil, title: nil, tags: [], published_at: nil, slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:23: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+
+12:48:56.345 request_id=GIlVrm6ppqBi0PgAAAdC [info] Sent 200 in 2ms
+12:48:56.402 request_id=GIlVrnIsG7Ri0PgAAAfC [info] GET /assets/css/app.css
+12:48:56.402 request_id=GIlVrnIsG7Ri0PgAAAfC [info] Sent 404 in 307µs
+12:48:56.517 [info] CONNECTED TO Phoenix.LiveView.Socket in 0µs
+  Transport: :websocket
+  Serializer: Phoenix.Socket.V2.JSONSerializer
+  Parameters: %{"_csrf_token" => "AzsnSDIRGWNvFRAYAT8wNRdBIDoOOTxRsSU2WtlP5lw_jSTABtQqoSl3", "_live_referer" => "undefined", "_mount_attempts" => "0", "_mounts" => "0", "_track_static" => %{"0" => "http://localhost:4000/assets/css/app.css", "1" => "http://localhost:4000/assets/js/app.js"}, "vsn" => "2.0.0"}
+warning: a map with atom keys was given to a form. Maps are always considered parameters and therefore must have string keys, got: %{id: nil, status: nil, title: nil, tags: [], published_at: nil, slug: nil, content_delta: nil, content_md: nil, excerpt: nil, featured_image: nil}
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:106: Phoenix.HTML.FormData.Map.name_params_and_opts/2
+  (phoenix_html 4.3.0) lib/phoenix_html/form_data.ex:82: Phoenix.HTML.FormData.Map.to_form/2
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:23: PubliiExWeb.PostsLive.Edit.apply_action/3
+  (publii_ex 0.1.0) lib/publii_ex_web/live/posts_live/edit.ex:13: PubliiExWeb.PostsLive.Edit.handle_params/3
+  (phoenix_live_view 1.1.19) lib/phoenix_live_view/utils.ex:466: anonymous fn/5 in Phoenix.LiveView.Utils.call_handle_params!/5
+  (telemetry 1.3.0) /home/moe/publii_build/deps/telemetry/src/telemetry.erl:324: :telemetry.span/3
+

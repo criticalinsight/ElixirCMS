@@ -1,0 +1,1 @@
+05:42:25.662 [error] Could not warm up static assets: could not find static manifest at "c:/Users/Lenovo/AppData/Local/.burrito/publii_ex_erts-16.2_0.1.0/lib/publii_ex-0.1.0/priv/static/cache_manifest.json". Run "mix phx.digest" after building your static files or remove the "cache_static_manifest" configuration from your config files.

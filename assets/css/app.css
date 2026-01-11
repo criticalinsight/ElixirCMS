@@ -1,0 +1,502 @@
+/* See the Tailwind configuration guide for advanced usage
+   https://tailwindcss.com/docs/configuration */
+
+@import "tailwindcss" source(none);
+@source "../css";
+@source "../js";
+@source "../../lib/publii_ex_web";
+
+/* A Tailwind plugin that makes "hero-#{ICON}" classes available.
+   The heroicons installation itself is managed by your mix.exs */
+@plugin "../vendor/heroicons";
+
+/* daisyUI Tailwind Plugin. You can update this file by fetching the latest version with:
+   curl -sLO https://github.com/saadeghi/daisyui/releases/latest/download/daisyui.js
+   Make sure to look at the daisyUI changelog: https://daisyui.com/docs/changelog/ */
+@plugin "../vendor/daisyui" {
+  themes: false;
+}
+
+@import "../vendor/easymde.min.css";
+
+/* daisyUI theme plugin. You can update this file by fetching the latest version with:
+  curl -sLO https://github.com/saadeghi/daisyui/releases/latest/download/daisyui-theme.js
+  We ship with two themes, a light one inspired on Phoenix colors and a dark one inspired
+  on Elixir colors. Build your own at: https://daisyui.com/theme-generator/ */
+@plugin "../vendor/daisyui-theme" {
+  name: "dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(30.33% 0.016 252.42);
+  --color-base-200: oklch(25.26% 0.014 253.1);
+  --color-base-300: oklch(20.15% 0.012 254.09);
+  --color-base-content: oklch(97.807% 0.029 256.847);
+  --color-primary: oklch(58% 0.233 277.117);
+  --color-primary-content: oklch(96% 0.018 272.314);
+  --color-secondary: oklch(58% 0.233 277.117);
+  --color-secondary-content: oklch(96% 0.018 272.314);
+  --color-accent: oklch(60% 0.25 292.717);
+  --color-accent-content: oklch(96% 0.016 293.756);
+  --color-neutral: oklch(37% 0.044 257.287);
+  --color-neutral-content: oklch(98% 0.003 247.858);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(97% 0.013 236.62);
+  --color-success: oklch(60% 0.118 184.704);
+  --color-success-content: oklch(98% 0.014 180.72);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(96% 0.015 12.422);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "../vendor/daisyui-theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0 0);
+  --color-base-200: oklch(96% 0.001 286.375);
+  --color-base-300: oklch(92% 0.004 286.32);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: oklch(70% 0.213 47.604);
+  --color-primary-content: oklch(98% 0.016 73.684);
+  --color-secondary: oklch(55% 0.027 264.364);
+  --color-secondary-content: oklch(98% 0.002 247.839);
+  --color-accent: oklch(0% 0 0);
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(44% 0.017 285.786);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(62% 0.214 259.815);
+  --color-info-content: oklch(97% 0.014 254.604);
+  --color-success: oklch(70% 0.14 182.503);
+  --color-success-content: oklch(98% 0.014 180.72);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(96% 0.015 12.422);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Add variants based on LiveView classes */
+@custom-variant phx-click-loading (.phx-click-loading&, .phx-click-loading &);
+@custom-variant phx-submit-loading (.phx-submit-loading&, .phx-submit-loading &);
+@custom-variant phx-change-loading (.phx-change-loading&, .phx-change-loading &);
+
+/* Use the data attribute for dark mode  */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Make LiveView wrapper divs transparent for layout */
+[data-phx-session],
+[data-phx-teleported-src] {
+  display: contents
+}
+
+/* This file is for your main application CSS */
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 1rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* ===================================================
+   BREEK + EDGER DESIGN FUSION FOR PUBLII-EX ADMIN UI
+   =================================================== */
+
+/* NOTE: Google Fonts (Inter, Mulish) are loaded in root.html.heex */
+
+:root {
+  /* === BREEK PALETTE === */
+  --breek-bg: #FDFCFD;
+  --breek-text: #200E1E;
+  --breek-muted: #ADA4BB;
+  --breek-primary-deep: #0F2260;
+  --breek-accent-orange: #D43E2C;
+  --breek-accent-purple: #332ABE;
+  --breek-teal: #115365;
+  --breek-decorative: #9A83AD;
+
+  /* === EDGER PALETTE === */
+  --edger-accent: #284BCC;
+  --edger-decoration: #FFC107;
+  --edger-border: #E5E5E5;
+  --edger-box-bg: #FFFFFF;
+
+  /* === UNIFIED DESIGN TOKENS === */
+  --font-sans: 'Inter', 'Mulish', system-ui, sans-serif;
+  --font-heading: 'Mulish', 'Inter', sans-serif;
+
+  /* Shadows (Breek inspired - soft diffuse) */
+  --shadow-sm: 0 2px 8px -2px rgba(32, 14, 30, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(32, 14, 30, 0.06);
+  --shadow-lg: 0 12px 40px -8px rgba(32, 14, 30, 0.08);
+  --shadow-hover: 0 16px 48px -6px rgba(32, 14, 30, 0.12);
+
+  /* Border Radius (Breek inspired - rounded friendly) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 50px;
+}
+
+/* === BASE TYPOGRAPHY === */
+body {
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* === ENHANCED CARDS (Breek style with Edger borders) === */
+.card,
+[class*="card"] {
+  border: 1px solid var(--edger-border) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card:hover,
+[class*="card"]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover) !important;
+  border-color: var(--breek-accent-orange) !important;
+}
+
+/* === BUTTONS (Breek pill + Edger accents) === */
+.btn-primary,
+[class*="btn-primary"] {
+  background: linear-gradient(135deg, var(--breek-accent-orange), #E85A4A) !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 14px -3px rgba(212, 62, 44, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover,
+[class*="btn-primary"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px -3px rgba(212, 62, 44, 0.5) !important;
+}
+
+.btn-secondary,
+[class*="btn-secondary"],
+.btn-ghost {
+  border: 2px solid var(--edger-border) !important;
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-secondary:hover,
+[class*="btn-secondary"]:hover,
+.btn-ghost:hover {
+  border-color: var(--breek-primary-deep) !important;
+  background: rgba(15, 34, 96, 0.05) !important;
+}
+
+/* === ACCENT BUTTON (Electric purple) === */
+.btn-accent,
+[class*="btn-accent"] {
+  background: var(--breek-accent-purple) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: 0 4px 14px -3px rgba(51, 42, 190, 0.35) !important;
+}
+
+/* === INPUT FIELDS (Edger clean boxes) === */
+input,
+textarea,
+select,
+.input,
+[class*="input"] {
+  border: 1.5px solid var(--edger-border) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.input:focus,
+[class*="input"]:focus {
+  border-color: var(--edger-accent) !important;
+  box-shadow: 0 0 0 3px rgba(40, 75, 204, 0.1) !important;
+  outline: none !important;
+}
+
+/* === TABLES (Edger structured + Breek hover) === */
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+thead th {
+  background: linear-gradient(180deg, #FAFAFA, #F5F5F5) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+  color: var(--breek-muted) !important;
+  border-bottom: 2px solid var(--edger-border) !important;
+}
+
+tbody tr {
+  transition: all 0.15s ease !important;
+}
+
+tbody tr:hover {
+  background: rgba(40, 75, 204, 0.03) !important;
+}
+
+/* === TAGS/BADGES (Breek vivid colors) === */
+.badge,
+[class*="badge"] {
+  font-weight: 700 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  padding: 0.25em 0.6em !important;
+}
+
+.badge-primary {
+  background: var(--breek-accent-orange) !important;
+  color: white !important;
+}
+
+.badge-secondary {
+  background: var(--breek-teal) !important;
+  color: white !important;
+}
+
+.badge-accent {
+  background: var(--breek-accent-purple) !important;
+  color: white !important;
+}
+
+.badge-info {
+  background: var(--edger-accent) !important;
+  color: white !important;
+}
+
+.badge-success {
+  background: #22C55E !important;
+  color: white !important;
+}
+
+.badge-warning {
+  background: var(--edger-decoration) !important;
+  color: #1A1A1A !important;
+}
+
+/* === SIDEBAR / NAVIGATION === */
+.sidebar,
+[class*="sidebar"],
+aside {
+  border-right: 1px solid var(--edger-border) !important;
+}
+
+nav a,
+.nav a,
+[class*="nav"] a {
+  font-weight: 500 !important;
+  transition: all 0.15s ease !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+nav a:hover,
+.nav a:hover,
+[class*="nav"] a:hover {
+  background: rgba(40, 75, 204, 0.08) !important;
+  color: var(--edger-accent) !important;
+}
+
+nav a.active,
+.nav a.active,
+[class*="nav"] a.active {
+  background: linear-gradient(135deg, var(--edger-accent), #3D5FD9) !important;
+  color: white !important;
+}
+
+/* === DECORATIVE ELEMENTS (Edger amber highlights) === */
+.decoration-line,
+.highlight-bar {
+  width: 48px;
+  height: 4px;
+  background: var(--edger-decoration);
+  border-radius: 2px;
+}
+
+/* === PAGE HEADERS === */
+.page-header,
+main>header,
+section>header {
+  border-bottom: 1px solid var(--edger-border);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.page-header h1,
+main>header h1 {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  color: var(--breek-primary-deep) !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* === MODALS / DIALOGS === */
+.modal-box,
+[class*="modal"]>div {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 1px solid var(--edger-border) !important;
+}
+
+/* === DROPDOWN MENUS === */
+.dropdown-content,
+[class*="dropdown"] ul {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 1px solid var(--edger-border) !important;
+}
+
+/* === TOAST / ALERTS (Breek vivid) === */
+.alert,
+[class*="alert"] {
+  border-radius: var(--radius-md) !important;
+  border-left: 4px solid !important;
+}
+
+.alert-success {
+  border-left-color: #22C55E !important;
+}
+
+.alert-error {
+  border-left-color: var(--breek-accent-orange) !important;
+}
+
+.alert-warning {
+  border-left-color: var(--edger-decoration) !important;
+}
+
+.alert-info {
+  border-left-color: var(--edger-accent) !important;
+}
+
+/* === FORM LABELS === */
+label,
+.label {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  color: var(--breek-text) !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* === PROGRESS / LOADING STATES === */
+.loading,
+[class*="loading"] {
+  border-color: var(--breek-accent-orange) !important;
+}
+
+/* === DARK MODE ADJUSTMENTS === */
+[data-theme="dark"] {
+  --edger-border: #333 !important;
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] [class*="card"] {
+  border-color: #333 !important;
+}
+
+[data-theme="dark"] thead th {
+  background: linear-gradient(180deg, #2A2A2A, #222) !important;
+}

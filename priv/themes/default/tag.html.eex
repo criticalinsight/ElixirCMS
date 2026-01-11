@@ -1,0 +1,35 @@
+<div class="max-w-3xl mx-auto space-y-12">
+  <header class="border-b pb-8">
+    <h1 class="text-4xl font-black tracking-tight">Posts tagged with "<%= @tag %>"</h1>
+    <p class="text-gray-500 mt-2"><%= length(@posts) %> posts found</p>
+  </header>
+
+  <div class="space-y-16">
+    <%= for post <- @posts do %>
+      <article class="group">
+        <div class="text-sm text-gray-500 mb-2">
+          <%= post["date"] || "" %>
+        </div>
+        <h2 class="text-3xl font-bold mb-4">
+          <a href="<%= @relative_path %><%= post["slug"] %>/index.html" class="group-hover:text-blue-600 transition-colors">
+            <%= post["title"] %>
+          </a>
+        </h2>
+
+        <%= if post["featured_image"] do %>
+          <div class="mb-6 rounded-xl overflow-hidden border">
+            <img src="<%= @relative_path %><%= String.replace(post["featured_image"], ~r|^/|, "") %>" loading="lazy" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+        <% end %>
+
+        <p class="text-gray-600 leading-relaxed mb-6">
+          <%= post["excerpt"] || String.slice(post["content_md"] || "", 0, 250) %>...
+        </p>
+        <a href="<%= @relative_path %><%= post["slug"] %>/index.html" class="inline-flex items-center text-sm font-bold text-blue-600 hover:translate-x-1 transition-transform">
+          Read More
+          <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+      </article>
+    <% end %>
+  </div>
+</div>
