@@ -1,0 +1,17 @@
+.player-opened .gh-foot {
+    padding-bottom: 240px;
+}
+
+.gh-foot-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gh-foot-menu {
+    margin-top: 32px;
+}
+
+.gh-copyright {
+    margin-top: 16px;
+}

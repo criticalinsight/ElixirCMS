@@ -1,0 +1,20 @@
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex-grow: 1;
+    padding: 80px 0 40px;
+}
+
+.page-template .site-content {
+    padding-block: 0;
+}
+
+@media (max-width: 767px) {
+    .site-content {
+        padding: 40px 0;
+    }
+}

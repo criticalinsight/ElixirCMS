@@ -1,0 +1,22 @@
+.single .single-media .post-media {
+    margin: 0 auto 30px;
+}
+
+.single > .post-header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.page-template .single > .post-header {
+    margin-top: var(--header-spacing);
+}
+
+.single > .post-header .post-title {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.single > .post-header .post-meta {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+}

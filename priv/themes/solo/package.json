@@ -1,0 +1,108 @@
+{
+    "name": "solo",
+    "description": "A Ghost theme",
+    "version": "1.0.0",
+    "private": true,
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Ghost Foundation",
+        "email": "hello@ghost.org",
+        "url": "https://ghost.org"
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "docs": "https://solo.ghost.io/about/",
+    "config": {
+        "posts_per_page": 6,
+        "image_sizes": {
+            "xs": {
+                "width": 150
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 720
+            },
+            "l": {
+                "width": 960
+            },
+            "xl": {
+                "width": 1200
+            },
+            "xxl": {
+                "width": 2000
+            }
+        },
+        "card_assets": true,
+        "custom": {
+            "background_color": {
+                "type": "color",
+                "default": "#ffffff"
+            },
+            "navigation_layout": {
+                "type": "select",
+                "options": ["Logo on the left", "Logo in the middle", "Stacked"],
+                "default": "Logo on the left"
+            },
+            "typography": {
+                "type": "select",
+                "options": ["Modern sans-serif", "Elegant serif", "Consistent mono"],
+                "default": "Modern sans-serif"
+            },
+            "footer_text": {
+                "type": "text"
+            },
+            "header_section_layout": {
+                "type": "select",
+                "options": ["Side by side", "Large background", "Typographic profile"],
+                "default": "Large background",
+                "group": "homepage"
+            },
+            "primary_header": {
+                "type": "text",
+                "default": "Welcome to my site",
+                "group": "homepage"
+            },
+            "secondary_header": {
+                "type": "text",
+                "default": "Subscribe below to receive my latest posts directly in your inbox",
+                "group": "homepage"
+            },
+            "post_feed_layout": {
+                "type": "select",
+                "options": ["Classic", "Typographic", "Parallax"],
+                "default": "Classic",
+                "group": "homepage"
+            }
+        }
+    },
+    "scripts": {
+        "dev": "gulp",
+        "test": "gscan .",
+        "zip": "gulp zip"
+    },
+    "devDependencies": {
+        "@tryghost/shared-theme-assets": "2.5.2",
+        "autoprefixer": "10.4.23",
+        "beeper": "2.1.0",
+        "cssnano": "7.1.2",
+        "gscan": "5.2.2",
+        "gulp": "5.0.1",
+        "gulp-concat": "2.6.1",
+        "gulp-livereload": "4.0.2",
+        "gulp-postcss": "10.0.0",
+        "gulp-uglify": "3.0.2",
+        "gulp-zip": "5.1.0",
+        "ordered-read-streams": "2.0.0",
+        "postcss": "8.5.6",
+        "postcss-easy-import": "4.0.0",
+        "pump": "3.0.3"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Casper (Jekyll)",
+    "author": "Jasper2 / Ghost Port",
+    "version": "2.0.0",
+    "config": {
+        "show_subscribe": true,
+        "accent_color": "#3eb0ef"
+    }
+}

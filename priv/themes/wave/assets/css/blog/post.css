@@ -1,0 +1,109 @@
+.post-media {
+    position: relative;
+    flex-shrink: 0;
+    width: 200px;
+    height: 100%;
+    margin-right: 32px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.post-media .button-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    margin-top: -24px;
+    margin-left: -24px;
+    transition: transform 0.1s var(--animation-base);
+}
+
+.post-media:active .button-play {
+    transform: scale(0.9);
+}
+
+.post-media .letter {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 200px;
+    color: var(--mid-gray-color);
+    text-align: center;
+    letter-spacing: -3px;
+    white-space: nowrap;
+}
+
+.post-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    color: var(--color-white);
+    background-color: var(--ghost-accent-color);
+    border-radius: 50%;
+}
+
+.post-play svg:nth-child(2),
+.post-play.playing svg:nth-child(1) {
+    display: none;
+}
+
+.post-play.playing svg:nth-child(2) {
+    display: block;
+}
+
+.post-title {
+    margin-bottom: 0;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .post-title {
+    font-family: var(--gh-font-heading, var(--font-serif));
+    font-weight: 700;
+}
+
+.post-meta {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+}
+
+.post-meta-tags {
+    margin-left: 8px;
+}
+
+.post-meta-tags .post-tag {
+    color: var(--brand-color);
+}
+
+.post-meta-tags .post-tag + .post-tag::before {
+    content: ", ";
+}
+
+.post-excerpt {
+    font-size: 1.5rem;
+    word-break: break-word;
+}
+
+.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .post-excerpt {
+    font-family: var(--gh-font-body, var(--font-serif));
+}
+
+@media (max-width: 767px) {
+    .post-title {
+        font-size: 17px;
+    }
+}

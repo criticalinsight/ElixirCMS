@@ -1,0 +1,53 @@
+.post-feed {
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.post-feed .post {
+    display: flex;
+}
+
+.post-feed .post + .post {
+    margin-top: 64px;
+}
+
+.post-feed .post-excerpt {
+    margin-top: 15px;
+}
+
+.post-feed .post-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.post-feed .post-footer-download {
+    margin-top: -1px;
+    margin-left: 12px;
+}
+
+@media (max-width: 767px) {
+    .post-feed .post + .post {
+        margin-top: 30px;
+    }
+
+    .post-feed .post-media {
+        width: 80px;
+        margin-right: 20px;
+    }
+
+    .post-feed .post-media .button-play {
+        width: 34px;
+        height: 34px;
+        margin-top: -17px;
+        margin-left: -17px;
+    }
+
+    .post-feed .post-media .letter {
+        display: none;
+    }
+
+    .post-feed .post-excerpt {
+        display: none;
+    }
+}

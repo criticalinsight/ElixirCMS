@@ -1,0 +1,9 @@
+{
+    "name": "Chirpy",
+    "author": "Cotes2020",
+    "version": "7.1.1",
+    "config": {
+        "sidebar_style": "default",
+        "accent_color": "#007bff"
+    }
+}

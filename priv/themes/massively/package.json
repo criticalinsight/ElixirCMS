@@ -1,0 +1,84 @@
+{
+    "name": "massively",
+    "description": "This is Massively, a text-heavy, article-oriented theme for Ghost.",
+    "demo": "https://massively.ghost.io",
+    "version": "1.1.0",
+    "engines": {
+        "ghost": ">=4.0.0",
+        "ghost-api": "v4"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot.jpg"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "pretest": "gulp build",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+    },
+    "author": {
+        "name": "Ghost Foundation",
+        "email": "hello@ghost.org",
+        "url": "https://ghost.org"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Magazine"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TryGhost/Massively.git"
+    },
+    "bugs": "https://github.com/TryGhost/Massively/issues",
+    "contributors": [
+        {
+            "name": "ajlkn",
+            "email": "aj@lkn.io",
+            "url": "https://twitter.com/ajlkn"
+        }
+    ],
+    "devDependencies": {
+        "beeper": "2.1.0",
+        "gscan": "5.2.2",
+        "gulp": "5.0.1",
+        "gulp-livereload": "4.0.2",
+        "gulp-sass": "6.0.1",
+        "gulp-sourcemaps": "3.0.0",
+        "gulp-watch": "5.0.1",
+        "gulp-zip": "6.1.0",
+        "node-sass": "9.0.0"
+    },
+    "config": {
+        "posts_per_page": 12,
+        "custom": {
+            "title_font": {
+                "type": "select",
+                "options": [
+                    "Modern sans-serif",
+                    "Elegant serif"
+                ],
+                "default": "Modern sans-serif"
+            },
+            "body_font": {
+                "type": "select",
+                "options": [
+                    "Modern sans-serif",
+                    "Elegant serif"
+                ],
+                "default": "Elegant serif"
+            }
+        }
+    }
+}

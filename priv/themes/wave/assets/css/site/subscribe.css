@@ -1,0 +1,24 @@
+.subscribe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.subscribe .subscribe-link {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-darker-gray);
+}
+
+.subscribe-link.rss {
+    gap: 4px;
+}
+
+@media (max-width: 767px) {
+    .subscribe .subscribe-text {
+        display: none;
+    }
+}

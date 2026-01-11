@@ -1,0 +1,99 @@
+{
+    "name": "wave",
+    "description": "A Ghost theme",
+    "version": "1.0.0",
+    "private": true,
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+        "author": {
+            "name": "Ghost Foundation",
+            "email": "hello@ghost.org",
+            "url": "https://ghost.org"
+        },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "docs": "https://wave.ghost.io/about/",
+    "config": {
+        "posts_per_page": 5,
+        "image_sizes": {
+            "xs": {
+                "width": 150
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 720
+            },
+            "l": {
+                "width": 960
+            },
+            "xl": {
+                "width": 1200
+            },
+            "xxl": {
+                "width": 2000
+            }
+        },
+        "card_assets": true,
+        "custom": {
+            "navigation_layout": {
+                "type": "select",
+                "options": ["Logo on the left", "Logo in the middle", "Stacked"],
+                "default": "Logo on the left"
+            },
+            "title_font": {
+                "type": "select",
+                "options": ["Modern sans-serif", "Elegant serif"],
+                "default": "Modern sans-serif"
+            },
+            "body_font": {
+                "type": "select",
+                "options": ["Modern sans-serif", "Elegant serif"],
+                "default": "Modern sans-serif"
+            },
+            "apple_podcasts_link": {
+                "type": "text",
+                "default": "https://podcasts.apple.com/"
+            },
+            "google_podcasts_link": {
+                "type": "text",
+                "default": "https://podcasts.google.com/"
+            },
+            "spotify_link": {
+                "type": "text",
+                "default": "https://open.spotify.com/"
+            },
+            "rss_link": {
+                "type": "text"
+            }
+        }
+    },
+    "scripts": {
+        "dev": "gulp",
+        "test": "gscan .",
+        "zip": "gulp zip"
+    },
+    "devDependencies": {
+        "@tryghost/shared-theme-assets": "2.5.2",
+        "autoprefixer": "10.4.23",
+        "beeper": "2.1.0",
+        "cssnano": "7.1.2",
+        "gscan": "5.2.2",
+        "gulp": "5.0.1",
+        "gulp-concat": "2.6.1",
+        "gulp-livereload": "4.0.2",
+        "gulp-postcss": "10.0.0",
+        "gulp-uglify": "3.0.2",
+        "gulp-zip": "5.1.0",
+        "ordered-read-streams": "2.0.0",
+        "postcss": "8.5.6",
+        "postcss-easy-import": "4.0.0",
+        "pump": "3.0.3"
+    }
+}

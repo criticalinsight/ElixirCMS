@@ -1,0 +1,9 @@
+{
+    "name": "Minimal Mistakes",
+    "author": "Michael Rose",
+    "version": "4.26.2",
+    "config": {
+        "layout_width": "wide",
+        "accent_color": "#000000"
+    }
+}

@@ -1,0 +1,26 @@
+{{!< default}}
+
+{{#post}}
+<article class="post-content {{post_class}}">
+
+    <header class="post-content-header gh-canvas">
+        <h1 class="post-content-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="post-content-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+        {{> "feature-image"}}
+    </header>
+
+
+    <div class="post-content-body gh-content gh-canvas">
+        {{content}}
+    </div>
+
+    {{#if comments}}
+        <div class="gh-comments gh-canvas">
+            {{comments}}
+        </div>
+    {{/if}}
+
+</article>
+{{/post}}
