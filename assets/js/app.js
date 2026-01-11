@@ -25,22 +25,25 @@ import { LiveSocket } from "phoenix_live_view"
 import { hooks as colocatedHooks } from "phoenix-colocated/publii_ex"
 import topbar from "../vendor/topbar"
 
-import "../vendor/easymde.min.js"
-import EditorJS from "@editorjs/editorjs"
-import Header from "@editorjs/header"
-import List from "@editorjs/list"
-import ImageTool from "@editorjs/image"
-import Quote from "@editorjs/quote"
-import InlineCode from "@editorjs/inline-code"
-import Marker from "@editorjs/marker"
-import Table from "@editorjs/table"
-import CodeTool from "@editorjs/code"
-import Delimiter from "@editorjs/delimiter"
-import Checklist from "@editorjs/checklist"
-import Embed from "@editorjs/embed"
+// Editor components will be dynamic imported in hooks to reduce bundle size
 
 const EditorJSHook = {
-  mounted() {
+  async mounted() {
+    const [{ default: EditorJS }, { default: Header }, { default: List }, { default: ImageTool }, { default: Quote }, { default: InlineCode }, { default: Marker }, { default: Table }, { default: CodeTool }, { default: Delimiter }, { default: Checklist }, { default: Embed }] = await Promise.all([
+      import("@editorjs/editorjs"),
+      import("@editorjs/header"),
+      import("@editorjs/list"),
+      import("@editorjs/image"),
+      import("@editorjs/quote"),
+      import("@editorjs/inline-code"),
+      import("@editorjs/marker"),
+      import("@editorjs/table"),
+      import("@editorjs/code"),
+      import("@editorjs/delimiter"),
+      import("@editorjs/checklist"),
+      import("@editorjs/embed")
+    ]);
+
     const initialData = this.el.dataset.content ? JSON.parse(this.el.dataset.content) : {};
 
     const editor = new EditorJS({
@@ -48,20 +51,14 @@ const EditorJSHook = {
       data: initialData,
       placeholder: 'Let`s write an awesome story!',
       tools: {
-        header: {
-          class: Header,
-          inlineToolbar: ['link']
-        },
-        list: {
-          class: List,
-          inlineToolbar: true
-        },
+        header: { class: Header, inlineToolbar: ['link'] },
+        list: { class: List, inlineToolbar: true },
         image: {
           class: ImageTool,
           config: {
             endpoints: {
-              byFile: '/api/uploads', // Your backend file uploader endpoint
-              byUrl: '/api/fetchUrl', // Your endpoint that provides uploading by Url
+              byFile: '/api/uploads',
+              byUrl: '/api/fetchUrl'
             }
           }
         },
@@ -77,21 +74,12 @@ const EditorJSHook = {
       onChange: (api, event) => {
         editor.save().then((outputData) => {
           this.pushEvent("editor-changed", { content: outputData });
-        }).catch((error) => {
-          console.log('Saving failed: ', error)
         });
       }
     });
 
     this.handleEvent("insert-editor-image", ({ path, name }) => {
-      // Logic to insert image block
-      const index = editor.blocks.getBlocksCount();
-      editor.blocks.insert('image', {
-        file: {
-          url: path
-        },
-        caption: name
-      });
+      editor.blocks.insert('image', { file: { url: path }, caption: name });
     });
 
     this.editor = editor;
@@ -104,9 +92,8 @@ const EditorJSHook = {
 }
 
 const EasyMDEHook = {
-  mounted() {
-    // If EasyMDE isn't a module, it might be on window.
-    // Ensure we can reference it.
+  async mounted() {
+    await import("../vendor/easymde.min.js");
     const editor = new EasyMDE({
       element: this.el,
       forceSync: true,
@@ -115,7 +102,6 @@ const EasyMDEHook = {
       minHeight: "300px"
     });
 
-    // Sync changes back to the textarea for LiveView
     editor.codemirror.on("change", () => {
       this.el.value = editor.value();
       this.el.dispatchEvent(new Event("input", { bubbles: true }));
@@ -123,18 +109,39 @@ const EasyMDEHook = {
 
     this.handleEvent("insert-image", ({ path, name }) => {
       const pos = editor.codemirror.getCursor();
-      const text = `![${name}](${path})`;
-      editor.codemirror.replaceRange(text, pos);
+      editor.codemirror.replaceRange(`![${name}](${path})`, pos);
       editor.codemirror.focus();
     });
 
     this.editor = editor;
   },
   destroyed() {
-    if (this.editor) {
-      this.editor.toTextArea();
-      this.editor = null;
-    }
+    if (this.editor) this.editor.toTextArea();
+  }
+}
+
+const IframeHook = {
+  mounted() {
+    this.handleEvent("refresh-preview", () => {
+      this.el.contentWindow.location.reload();
+    })
+
+    this.handleEvent("refresh-styles", (data) => {
+      const doc = this.el.contentDocument || this.el.contentWindow.document;
+      // Find the main theme stylesheet. We look for one that mentions /preview/styles
+      const links = doc.querySelectorAll('link[rel="stylesheet"]');
+      links.forEach(link => {
+        if (link.href.includes('/preview/styles')) {
+          // Append a timestamp to force a browser refresh of the CSS file
+          const url = new URL(link.href);
+          if (data.config) {
+            url.searchParams.set('config', data.config);
+          }
+          url.searchParams.set('_v', Date.now());
+          link.href = url.toString();
+        }
+      });
+    })
   }
 }
 
@@ -142,7 +149,7 @@ const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: { _csrf_token: csrfToken },
-  hooks: { ...colocatedHooks, EasyMDE: EasyMDEHook, EditorJS: EditorJSHook },
+  hooks: { ...colocatedHooks, EasyMDE: EasyMDEHook, EditorJS: EditorJSHook, Iframe: IframeHook },
 })
 
 // Show progress bar on live navigation and form submits
@@ -201,10 +208,3 @@ window.addEventListener("phx:js-exec", ({ detail }) => {
     liveSocket.execJS(el, el.getAttribute(detail.attr))
   })
 })
-
-window.addEventListener("phx:refresh-preview", (e) => {
-  const frame = document.getElementById("preview-frame");
-  if (frame) {
-    frame.contentWindow.location.reload();
-  }
-});

@@ -30,6 +30,8 @@ defmodule PubliiExWeb.Router do
     live("/sites/:site_id/pages/:id/edit", PagesLive.Edit, :edit)
     live("/sites/:site_id/media", MediaLive)
     live("/sites/:site_id/theme", ThemeLive.Editor)
+    get("/sites/:site_id/preview", PreviewController, :show)
+    get("/sites/:site_id/preview/styles", PreviewController, :styles)
     live("/sites/:site_id/plugins", PluginsLive)
     live("/sites/:site_id/settings", SettingsLive)
 

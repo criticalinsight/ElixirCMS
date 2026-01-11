@@ -8,12 +8,13 @@ ElixirCMS is a powerful desktop-class CMS built with Elixir and Phoenix. It brin
 
 *   **Visual Block Editor**: Modern, drag-and-drop editing experience using **Editor.js**. Supports Headers, Lists, Images, Quotes, and more with instant JSON-to-HTML rendering.
 *   **Multisite Management**: Create and manage unlimited independent sites from a single dashboard.
-*   **Static Site Generation**: Blazing fast builds using EEx templates with prioritized content rendering.
+*   **Static Site Generation**: Blazing fast builds using EEx templates with prioritized content rendering and **Cache Warm-up**.
+*   **Live Theme Customizer**: Real-time design studio with **CSS Hot-Reloading** for instant UI feedback without full page flashes.
 *   **Search Integration**: Automatically generates `search.json` and integrates **Pagefind** for instant static search.
 *   **Magic Writer AI**: Integrated Google Gemini AI for auto-generating SEO titles and meta descriptions.
-*   **Ecosystem & Plugins**: A robust hook-based plugin system for content transformation and custom UI injection.
+*   **Advanced Plugin System**: Robust lifecycle hooks (`:before_build`, `:after_render`) for deep build integration and content transformation.
 *   **Native Desktop (Tauri)**: Run ElixirCMS as a native desktop application on Windows, macOS, and Linux.
-*   **Media Library**: Site-scoped drag-and-drop media management.
+*   **Media Library**: Site-scoped drag-and-drop media management with folder support.
 
 ## 🎨 Available Themes
 
@@ -32,6 +33,20 @@ ElixirCMS comes with a suite of premium, highly-polished themes. You can preview
 | **Nebula** | Dark Mode, Glassmorphism | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/nebula/) |
 | **Kinetic** | High Energy, Brutalist | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/kinetic/) |
 | **Maer** | Abstract, Experimental | [Live Demo](https://criticalinsight.github.io/ElixirCMS/themes/maer/) |
+
+## 🏆 Comparison: Publii-Ex vs. Other Elixir SSGs
+
+Publii-Ex is designed to be a complete CMS, not just a build tool.
+
+| Feature | Publii-Ex | Still | Serum | NimblePublisher |
+| :--- | :--- | :--- | :--- | :--- |
+| **Editing Interface** | **Visual Block Editor** | Markdown/Code | Markdown/Code | Code |
+| **Live Customizer** | **Instant (CSS Hot-Reload)** | Dev Reload | Dev Reload | N/A |
+| **Media Management** | **Integrated UI** | Manual Files | Manual Files | Manual Files |
+| **Build Pipeline** | **Advanced Lifecycle Hooks** | Composable | Basic Plugins | N/A |
+| **Multisite Support** | **Native** | Single Site | Single Site | N/A |
+| **Persistence** | CubDB (Fast Local DB) | Filesystem | Filesystem | Compile-time |
+| **Build Speed** | **Pre-heated Cache** | Standard | Standard | Varies |
 
 
 ## 🚀 Getting Started
@@ -75,7 +90,9 @@ Visit [`localhost:4000`](http://localhost:4000) to access the dashboard in web m
 4.  Click **Deploy to Cloudflare** from the site overview.
 
 ### Plugin Architecture
-You can extend the build pipeline by implementing hooks in `lib/publii_ex/plugins.ex`. Standard hooks include:
-- `pre_build/1`: Run before site generation.
-- `post_build/1`: Run after site generation.
-- `transform_content/1`: Modify post/page content before rendering.
+You can extend the build pipeline by implementing hooks in your plugin module. Standard hooks include:
+- `before_build`: Run before site generation starts (e.g. to prepare assets).
+- `head` / `body`: Inject HTML into every page during render.
+- `transform`: Modify post/page content before rendering.
+- `after_render`: Pipeline hook to transform final HTML (e.g. minification, SEO injection).
+- `on_asset_compile`: Intercept and modify CSS/JS before bundling.

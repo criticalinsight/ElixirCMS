@@ -21,6 +21,7 @@ defmodule PubliiEx.Theme.HandlebarsAdapter do
     ]
 
     try do
+      # bbmustache.render works with both binaries and compiled templates
       :bbmustache.render(template, data, options)
     rescue
       e ->

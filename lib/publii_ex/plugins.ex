@@ -12,7 +12,8 @@ defmodule PubliiEx.Plugins do
     PubliiEx.Plugins.PrivacyPulse,
     PubliiEx.Plugins.NewsletterSync,
     PubliiEx.Plugins.GhostHunter,
-    PubliiEx.Plugins.PixelPerfect
+    PubliiEx.Plugins.PixelPerfect,
+    PubliiEx.Plugins.SeoOptimizer
   ]
 
   def list_available_plugins do
@@ -100,7 +101,7 @@ defmodule PubliiEx.Plugins do
     "site:#{site_id}:plugin:#{plugin_id}"
   end
 
-  def run_hooks(site_id, hook_name, context) do
+  def run_injection_hooks(site_id, hook_name, context) do
     list_installed_plugins(site_id)
     |> Enum.map(fn plugin ->
       hooks = plugin.hooks()
@@ -128,30 +129,36 @@ defmodule PubliiEx.Plugins do
   end
 
   @doc """
-  Runs a transformation pipeline on content.
-  Plugins with a :transform hook will receive (content, context) and must return new content.
+  Runs a transformation pipeline on any data type.
+  Plugins with the hook will receive (current_data, context) and must return new_data.
   """
-  def transform_content(site_id, content, context) do
+  def run_pipeline(site_id, hook_name, data, context) do
     list_installed_plugins(site_id)
-    |> Enum.reduce(content, fn plugin, current_content ->
+    |> Enum.reduce(data, fn plugin, current_data ->
       hooks = plugin.hooks()
 
-      if Map.has_key?(hooks, :transform) do
+      if Map.has_key?(hooks, hook_name) do
         try do
           settings = get_settings(site_id, plugin.id())
           enhanced_context = Map.put(context, :settings, settings)
 
-          # Call transform hook
-          hooks[:transform].(current_content, enhanced_context)
+          hooks[hook_name].(current_data, enhanced_context)
         rescue
           e ->
             require Logger
-            Logger.error("Plugin transform failed: #{plugin.name()}: #{inspect(e)}")
-            current_content
+
+            Logger.error(
+              "Plugin pipeline hook failed: #{plugin.name()} - #{hook_name}: #{inspect(e)}"
+            )
+
+            current_data
         end
       else
-        current_content
+        current_data
       end
     end)
   end
+
+  def transform_content(site_id, content, context),
+    do: run_pipeline(site_id, :transform, content, context)
 end

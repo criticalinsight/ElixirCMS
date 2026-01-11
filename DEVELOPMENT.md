@@ -27,13 +27,14 @@ ElixirCMS follows a **Localhost Monolith** pattern. It runs as a local web serve
 
 *   **Generator (Static Site Generator)**:
     *   Located in `lib/publii_ex/generator.ex`.
-    *   Compiles content using EEx templates in `priv/themes/{theme_name}`.
+    *   Compiles content using EEx templates and bbmustache (Handlebars).
+    *   **High-Performance Caching**: Leverages `PubliiEx.Cache` to store parsed templates and pre-rendered content. Caches are warmed up automatically during build.
     *   **Content Pipeline**: Prioritizes block-editor delta over raw Markdown.
     *   **Search**: Generates `search.json` and runs **Pagefind** indexing.
 
 *   **Plugin Architecture**:
-    *   Hook system in `lib/publii_ex/plugins.ex`.
-    *   Allows transforming content, injecting scripts into `<head>`, or adding sidebar widgets.
+    *   Standard hooks in `lib/publii_ex/plugins.ex` for script injection (`head`/`body`).
+    *   Advanced pipeline hooks (`before_build`, `after_render`) for recursive content transformation and asset preparation.
 
 ## Setting Up Development Environment
 

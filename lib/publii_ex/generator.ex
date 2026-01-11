@@ -13,6 +13,12 @@ defmodule PubliiEx.Generator do
     site = Repo.get_site(site_id)
     unless site, do: raise("Site not found: #{site_id}")
 
+    # Lifecycle: Before Build
+    Plugins.run_pipeline(site_id, :before_build, site, %{})
+
+    # Warm up content cache
+    PubliiEx.Cache.warm_up(site_id)
+
     output_dir = Path.join(@output_dir, "sites/#{site_id}")
 
     # 1. Clean/Create output dir
@@ -194,15 +200,25 @@ defmodule PubliiEx.Generator do
   end
 
   defp ensure_content(item) do
-    content =
-      if item.content_delta && Map.get(item.content_delta, "blocks") &&
-           length(Map.get(item.content_delta, "blocks")) > 0 do
-        PubliiEx.Editor.to_html(item.content_delta)
-      else
-        MDEx.to_html(item.content_md || "")
-      end
+    # Create a unique cache key based on site, ID, and updated_at timestamp
+    cache_key = "site:#{item.site_id}:content:#{item.id}:#{item.updated_at}"
 
-    %{item | content: content}
+    case Repo.get("cache:#{cache_key}") do
+      nil ->
+        content =
+          if item.content_delta && Map.get(item.content_delta, "blocks") &&
+               length(Map.get(item.content_delta, "blocks")) > 0 do
+            PubliiEx.Editor.to_html(item.content_delta)
+          else
+            MDEx.to_html(item.content_md || "")
+          end
+
+        Repo.put("cache:#{cache_key}", content)
+        %{item | content: content}
+
+      cached_html ->
+        %{item | content: cached_html}
+    end
   end
 
   defp group_posts_by_tag(posts) do
@@ -318,13 +334,17 @@ defmodule PubliiEx.Generator do
     final_content = render_engine(layout_path, layout_assigns, theme_path)
 
     # 6. Inject Plugin Hooks (Head and Body)
-    head_injection = PubliiEx.Plugins.run_hooks(site_id, :head, final_assigns)
-    body_injection = PubliiEx.Plugins.run_hooks(site_id, :body, final_assigns)
+    head_injection = PubliiEx.Plugins.run_injection_hooks(site_id, :head, final_assigns)
+    body_injection = PubliiEx.Plugins.run_injection_hooks(site_id, :body, final_assigns)
 
     final_content =
       final_content
       |> String.replace("</head>", "#{head_injection}\n</head>")
       |> String.replace("</body>", "#{body_injection}\n</body>")
+
+    # Lifecycle: After Render (Pipeline)
+    final_content =
+      PubliiEx.Plugins.run_pipeline(site_id, :after_render, final_content, final_assigns)
 
     File.write!(dest_path, final_content)
   end
@@ -400,6 +420,11 @@ defmodule PubliiEx.Generator do
 
     case ext do
       ext when ext in [".hbs", ".handlebars"] ->
+        mtime = File.stat!(path).mtime
+
+        cache_key =
+          "theme:#{Path.basename(theme_path)}:template:#{Path.basename(path)}:#{inspect(mtime)}"
+
         # Handlebars/Mustache support via HandlebarsAdapter
         content = File.read!(path)
 
@@ -440,9 +465,94 @@ defmodule PubliiEx.Generator do
         Logger.debug("EEx assigns keys: #{inspect(Keyword.keys(atom_assigns))}")
 
         EEx.eval_file(path, assigns: atom_assigns, raw: raw_fn)
-
-      _ ->
-        File.read!(path)
     end
+  end
+
+  def render_site_to_memory(site, explicit_config \\ nil) do
+    site_id = site.id
+    config = explicit_config || site.settings["theme_config"] || %{}
+    posts = list_published_posts(site_id)
+
+    theme_name = site.theme || "maer"
+    theme_path = Path.join(["priv", "themes", theme_name])
+    theme_config = load_theme_config(theme_path, config)
+
+    base_assigns = %{
+      site: %{
+        title: site.name,
+        url: "#",
+        config: config,
+        settings: site.settings
+      },
+      theme: theme_config
+    }
+
+    # Render just the home page for preview
+    render_theme_to_string(
+      site_id,
+      "index",
+      theme_path,
+      Map.merge(base_assigns, %{posts: posts, page_title: "Preview: Home", relative_path: ""})
+    )
+  end
+
+  def render_theme_styles(site, explicit_config \\ nil) do
+    config = explicit_config || site.settings["theme_config"] || %{}
+    theme_name = site.theme || "maer"
+    theme_path = Path.join(["priv", "themes", theme_name])
+    theme_config = load_theme_config(theme_path, config)
+
+    # Styles often use variables from theme_config
+    assigns = %{
+      site: %{title: site.name, config: config, settings: site.settings},
+      theme: theme_config
+    }
+
+    # Search for main style file (usually main.css.hbs or similar)
+    style_path =
+      ["main.css.hbs", "style.css.hbs", "assets/css/main.css.hbs", "main.css.eex"]
+      |> Enum.map(&Path.join(theme_path, &1))
+      |> Enum.find(&File.exists?/1)
+
+    if style_path do
+      render_engine(style_path, PubliiEx.Theme.Adapter.normalize(assigns), theme_path)
+    else
+      ""
+    end
+  end
+
+  defp render_theme_to_string(site_id, template_base, theme_path, assigns) do
+    normalized_assigns = PubliiEx.Theme.Adapter.normalize(assigns)
+
+    partial_helper = fn name, partial_assigns ->
+      p_path = find_template(theme_path, name)
+      merged = Map.merge(normalized_assigns, PubliiEx.Theme.Adapter.normalize(partial_assigns))
+      render_engine(p_path, merged, theme_path)
+    end
+
+    final_assigns = Map.put(normalized_assigns, "render_partial", partial_helper)
+    template_path = find_template(theme_path, template_base)
+    layout_path = find_layout(theme_path)
+
+    inner_content = render_engine(template_path, final_assigns, theme_path)
+    layout_assigns = Map.put(final_assigns, "inner_content", inner_content)
+    final_content = render_engine(layout_path, layout_assigns, theme_path)
+
+    head_injection = PubliiEx.Plugins.run_injection_hooks(site_id, :head, final_assigns)
+    body_injection = PubliiEx.Plugins.run_injection_hooks(site_id, :body, final_assigns)
+
+    config_json = assigns.site.config |> Jason.encode!()
+
+    final_content
+    |> String.replace("</head>", "#{head_injection}\n</head>")
+    |> String.replace("</body>", "#{body_injection}\n</body>")
+    |> PubliiEx.Plugins.run_pipeline(site_id, :after_render, final_assigns)
+    # Target CSS replacement for hot-reloading
+    |> String.replace(
+      ~r/<link[^>]+href=["'][^"']+\/(?:main|style|assets\/css\/main)\.css[^"']*["'][^>]*>/i,
+      fn original ->
+        "<link rel=\"stylesheet\" href=\"/sites/#{site_id}/preview/styles?config=#{URI.encode(config_json)}\">"
+      end
+    )
   end
 end
